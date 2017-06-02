@@ -22,7 +22,7 @@ Base
 Instalación en Mac/Linux
 ------------------------
 
-..code::
+.. code::
 
     git clone https://github.com/isgroba/petlost
     cd petlost
@@ -31,7 +31,7 @@ Instalación en Mac/Linux
 
 Una vez dentro de la máquina virtual (.venv)
 
-..code::
+.. code::
 
     pip install --upgrade pip setuptools wheel
     pip install pip-tools --upgrade
@@ -41,7 +41,7 @@ Una vez dentro de la máquina virtual (.venv)
 Instalación en windows
 ----------------------
 
-..code::
+.. code::
     git clone https://github.com/isgroba/petlost
     cd petlost
     python -m venv .venv
@@ -49,7 +49,7 @@ Instalación en windows
 
 Una vez dentro de la máquina virtual (.venv)
 
-..code::
+.. code::
 
     pip install --upgrade pip setuptools wheel
     pip install pip-tools --upgrade
@@ -60,19 +60,19 @@ Tests y cobertura de código
 ---------------------------
 
 La calidad del código está gestionada por:
- ** pytest ** para ejecutar los tests del código y la cobertura:
+ **pytest** para ejecutar los tests del código y la cobertura:
  
- ..code::
+ .. code::
     pytest
     pytest --cov
 
-** flake8 ** lo ejecutamos para comprobar que el código sigue las recomendaciones de estilo de PEP8:
+**flake8** lo ejecutamos para comprobar que el código sigue las recomendaciones de estilo de PEP8:
 
-..code::
-    falke8
+.. code::
+    flake8
 
-** isort** comprueba que los importes estén ordenados
+**isort** comprueba que los importes estén ordenados
 
-..code::
+.. code::
 
     isort
