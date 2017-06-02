@@ -1,0 +1,6 @@
+[run]
+omit = .venv/*, .tox/*, */apps.py, manage.py, petlost/wsgi.py, webapp/migrations/*
+source = .
+
+[report]
+show_missing = true
