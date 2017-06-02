@@ -2,8 +2,8 @@
 petLost project
 ===============
 
-.. image:: https://travis-ci.org/isgroba/petLost.svg?branch=master
-    :target: https://travis-ci.org/isgroba/petLost
+.. image:: https://travis-ci.org/isGroba/petLost.svg?branch=master
+    :target: https://travis-ci.org/isGroba/petLost
 
 **PetLost** is a progressive web app. This project consist of a web in 
 which you can upload information of any animal that you find lost.
