@@ -2,10 +2,10 @@
 petLost project
 ===============
 
-.. image:: https://travis-ci.org/isgroba/petlost.svg?branch=master
-    :target: https://travis-ci.org/isgroba/petlost
+.. image:: https://travis-ci.org/isgroba/petLost.svg?branch=master
+    :target: https://travis-ci.org/isgroba/petLost
 
-** PetLost ** is a progressive web app. This project consist of a web in 
+**PetLost** is a progressive web app. This project consist of a web in 
 which you can upload information of any animal that you find lost.
 
 This project uses Spanish as the comunication language.
