@@ -60,4 +60,3 @@ class Color(models.Model):
 
     name = models.TextField(verbose_name='Nombre', max_length=32)
     code_color = models.TextField(verbose_name='Código color', max_length=32)
-
