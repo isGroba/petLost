@@ -56,6 +56,23 @@ Una vez dentro de la máquina virtual (.venv)
     pip install --requirement requirements.txt
     pip install --requirement dev-requirements.txt
 
+Montar base de datos
+--------------------
+
+Instalar postgres9.5 y a continuación crear el usuario y la base de datos iniciales:
+
+.. code::
+
+    CREATE DATABASE petlost;
+
+    CREATE USER pet PASSWORD 'petlost';
+
+Una vez hecho esto tenemos que cargar las migraciones de la base de datos:
+
+.. code::
+
+    python3 manage.py migrate
+
 Tests y cobertura de código
 ---------------------------
 
