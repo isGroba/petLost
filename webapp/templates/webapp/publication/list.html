@@ -1,0 +1,21 @@
+{% extends '../__base.html' %}
+
+{% block body %}
+  {% block content %}
+  <div>
+    <a href="{% url 'publication-create' %}" class="btn btn-primary">Nueva publicacion</a>
+  </div>
+    <br>
+    <form method="get">
+     {{ form.as_p }}
+    </form>
+    <br>
+    {% for publication in object_list %}
+     <div>
+      <a href="{% url 'publication-detail' pk=publication.pk %}">{{ publication.title}}</a>
+     </div>
+    {% empty %}
+     <p>No hay publicaciones</p>
+    {% endfor %}
+  {% endblock content %}
+{% endblock body %}
