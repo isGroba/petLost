@@ -80,12 +80,14 @@ La calidad del código está gestionada por:
  **pytest** para ejecutar los tests del código y la cobertura:
  
  .. code::
+
     pytest
     pytest --cov
 
 **flake8** lo ejecutamos para comprobar que el código sigue las recomendaciones de estilo de PEP8:
 
 .. code::
+
     flake8
 
 **isort** comprueba que los importes estén ordenados
