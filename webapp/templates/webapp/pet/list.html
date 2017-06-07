@@ -1,0 +1,21 @@
+{% extends '../__base.html' %}
+
+{% block body %}
+  {% block content %}
+  <div>
+    <a href="{% url 'pet-create' %}" class="btn btn-primary">Nueva mascota</a>
+  </div>
+    <br>
+    <form method="get">
+     {{ form.as_p }}
+    </form>
+    <br>
+    {% for pet in object_list %}
+     <div>
+      <a href="{% url 'pet-detail' pk=pet.pk %}">{{ pet.name}}</a>
+     </div>
+    {% empty %}
+     <p>No hay mascotas</p>
+    {% endfor %}
+  {% endblock content %}
+{% endblock body %}
