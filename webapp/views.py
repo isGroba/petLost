@@ -35,3 +35,29 @@ class PublicationDetail(generic.DetailView):
     model = models.Publication
     template_name = 'webapp/publication/detail.html'
     name = 'Detalle publicacion'
+
+
+class PetList(generic.ListView):
+    template_name = 'webapp/pet/list.html'
+    name = 'Mascotas'
+    model = models.Pet
+
+    def get_queryset(self):
+        return models.Pet.objects.all()
+
+
+class PetCreate(SuccessMessageMixin, generic.CreateView):
+    model = models.Pet
+    form_class = forms.CreatePet
+    template_name = 'webapp/pet/create.html'
+    succes_message = ('Mascota creada correctamente')
+    name = 'Crear mascota'
+
+    def get_success_url(self):
+        return reverse('publication-create', args=[self.object.id])
+
+
+class PetDetail(generic.DetailView):
+    model = models.Pet
+    template_name = 'webapp/pet/detail.html'
+    name = 'Detalle mascota'
