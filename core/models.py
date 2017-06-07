@@ -8,7 +8,7 @@ class Member(models.Model):
 
     name = models.TextField(verbose_name='Nombre')
     mail = models.EmailField()
-    phone = models.IntegerField(verbose_name='Número de teléfono', null=True, blank=True)
+    phone = models.CharField(verbose_name='Número de teléfono', null=True, blank=True, max_length=15)
     city = models.TextField(verbose_name='Ciudad', null=True, blank=True, max_length=20)
 
     def __str__(self):
