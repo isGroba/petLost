@@ -9,4 +9,3 @@ install:
 script:
   - isort --check-only
   - flake8
-  - pytest --cov
