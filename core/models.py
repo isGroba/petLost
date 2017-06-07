@@ -8,8 +8,11 @@ class Member(models.Model):
 
     name = models.TextField(verbose_name='Nombre')
     mail = models.EmailField()
-    phone = models.IntegerField(verbose_name='Número de teléfono', null=True, blank=True,)
+    phone = models.IntegerField(verbose_name='Número de teléfono', null=True, blank=True)
     city = models.TextField(verbose_name='Ciudad', null=True, blank=True, max_length=20)
+
+    def __str__(self):
+        return '{}'.format(self.name)
 
 
 class Color(models.Model):
@@ -19,6 +22,9 @@ class Color(models.Model):
 
     name = models.TextField(verbose_name='Nombre', max_length=32)
     code_color = models.TextField(verbose_name='Código color', max_length=32)
+
+    def __str__(self):
+        return '{}'.format(self.name)
 
 
 class Pet(models.Model):
@@ -32,20 +38,15 @@ class Pet(models.Model):
         ('reptil', 'Reptil'),
         ('other', 'Otro'),
     ]
-    NUMBER = [
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    ]
 
     name = models.TextField(verbose_name='Nombre', null=True, blank=True, max_length=32)
     type_animal = models.CharField('Tipo', choices=CATEGORIES, default='', max_length=32)
     breed = models.TextField(verbose_name='Raza', null=True, blank=True,)
-    number_color = models.IntegerField(verbose_name='Número de colores', choices=NUMBER, default='')
     description = models.TextField(verbose_name='Descripción', null=True, blank=True, max_length=250)
     color = models.ManyToManyField(Color)
+
+    def __str__(self):
+        return '{} {}'.format(self.type_animal, self.name)
 
 
 class Publication(models.Model):
@@ -56,9 +57,9 @@ class Publication(models.Model):
     title = models.TextField(verbose_name='Título', default='', max_length=100)
     description = models.TextField(verbose_name='Descripción', null=True, blank=True, max_length=250)
     date = models.DateField(verbose_name='Fecha', auto_now=True)
-    pet = models.ForeignKey(Pet, on_delete=models.PROTECT, default='')
+    pet = models.ForeignKey(Pet, on_delete=models.PROTECT)
     location = models.TextField(verbose_name='Localización', default='', max_length=100)
     # user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
-        return {}.format(self.title)
+        return '{}'.format(self.title)
