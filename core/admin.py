@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Pet, Publication, Color, Member
+from .models import Color, Member, Pet, Publication
 
 
 class PublicationAdmin(admin.ModelAdmin):
