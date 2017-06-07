@@ -43,7 +43,7 @@ class Pet(models.Model):
     name = models.TextField(verbose_name='Nombre', null=True, blank=True, max_length=32)
     type_animal = models.CharField('Tipo', choices=CATEGORIES, default='', max_length=32)
     breed = models.TextField(verbose_name='Raza', null=True, blank=True,)
-    number_color = models.IntegerField(verbose_name='Número de colores', choices=NUMBER, default='', max_length=32)
+    number_color = models.IntegerField(verbose_name='Número de colores', choices=NUMBER, default='')
     description = models.TextField(verbose_name='Descripción', null=True, blank=True, max_length=250)
     color = models.ManyToManyField(Color)
 
