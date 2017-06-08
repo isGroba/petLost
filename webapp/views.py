@@ -10,6 +10,11 @@ class Home(generic.TemplateView):
     template_name = 'webapp/home.html'
     name = 'Página principal'
 
+    def get_context_data(self, **kwargs):
+        context = super(Home, self).get_context_data(**kwargs)
+        context['publications'] = models.Publication.objects.all().order_by('date')
+        return context
+
 
 class PublicationList(generic.ListView):
     template_name = 'webapp/publication/list.html'

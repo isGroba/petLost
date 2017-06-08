@@ -1,4 +1,19 @@
 {% extends './__base.html' %}
 {% block body %}
 <a href="/webapp/home/">home/</a>
+{% block content %}
+{% for publication in publications %}
+  <div>
+      <h6>Fecha publicación: {{ publication.date }}</h6>
+    <h3>
+      <a href="{% url 'publication-detail' pk=publication.pk %}">{{ publication.title}}</a>
+    </h3>
+
+    <h5>{{ publication.pet }}</h5>
+    <p>{{ publication.description }}</p>
+  </div>
+    {% empty %}
+     <p>No hay publicaciones</p>
+    {% endfor %}
+{% endblock content %}
 {% endblock %}
