@@ -52,9 +52,7 @@ class PetCreate(SuccessMessageMixin, generic.CreateView):
     template_name = 'webapp/pet/create.html'
     succes_message = ('Mascota creada correctamente')
     name = 'Crear mascota'
-
-    def get_success_url(self):
-        return reverse('publication-create', args=[self.object.id])
+    success_url = '/webapp/publications/new/'
 
 
 class PetDetail(generic.DetailView):
