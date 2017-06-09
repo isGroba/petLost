@@ -32,7 +32,7 @@ class Pet(models.Model):
     class Meta:
         verbose_name = 'Mascota'
     CATEGORIES = [
-        ('dog', 'perro'),
+        ('dog', 'Perro'),
         ('gato', 'Gato'),
         ('bird', 'Pájaro'),
         ('reptil', 'Reptil'),
@@ -43,6 +43,7 @@ class Pet(models.Model):
     type_animal = models.CharField('Tipo', choices=CATEGORIES, default='', max_length=32)
     breed = models.TextField(verbose_name='Raza', null=True, blank=True,)
     description = models.TextField(verbose_name='Descripción', null=True, blank=True, max_length=250)
+    picture = models.ImageField(verbose_name='Foto', upload_to='pets', blank=True, null=True)
     color = models.ManyToManyField(Color)
 
     def __str__(self):

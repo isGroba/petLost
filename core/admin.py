@@ -12,7 +12,7 @@ class PublicationAdmin(admin.ModelAdmin):
 
 
 class PetAdmin(admin.ModelAdmin):
-    fields = ['name', 'type_animal', 'breed', 'description', 'color']
+    fields = ['name', 'type_animal', 'breed', 'description', 'color', 'picture']
     search_fields = ['name', 'breed']
 
     list_display = ('name', 'type_animal', 'breed', 'description')

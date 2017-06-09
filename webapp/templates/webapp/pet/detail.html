@@ -2,8 +2,10 @@
 {% block body %}
 <h3>{{pet.name}}</h3>
 <dl>
-    <dt>{{pet.type_animal}}</dt>
-    <dt>{{pet.breed}}</dt>
-    <dt>{{pet.description}}</dt>
-    <dt>{{pet.color}}</dt>
+    <dt>{{ pet.type_animal }}</dt>
+    <dt>{{ pet.breed }}</dt>
+    <dt>{{ pet.description }}</dt>
+    <dt>{{ pet.color }}</dt>
+    <dt>nombre: {{ pet.picture }}</dt>
+    <dd> <img src= "/media/{{pet.picture}}" alt="Fotografia {{ pet.name }}" height="100" width="100"> </dd>
 {% endblock %}

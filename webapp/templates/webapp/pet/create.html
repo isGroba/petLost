@@ -1,7 +1,7 @@
 {% extends '../__base.html' %}
 
 {% block body %}
-<form class="custom-form element" action="{% url 'pet-create' %}" method="post">
+<form class="custom-form element" action="{% url 'pet-create' %}" method="post" enctype="multipart/form-data">
 {% include '../_form_fields.html' %}
   <div class="form-group">
     <input type="submit" class="btn btn-primary" value="Siguiente">
