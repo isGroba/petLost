@@ -33,9 +33,9 @@ class Pet(models.Model):
         verbose_name = 'Mascota'
     CATEGORIES = [
         ('dog', 'Perro'),
-        ('gato', 'Gato'),
+        ('cat', 'Gato'),
         ('bird', 'Pájaro'),
-        ('reptil', 'Reptil'),
+        ('reptile', 'Reptil'),
         ('other', 'Otro'),
     ]
 
