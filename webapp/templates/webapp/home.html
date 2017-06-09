@@ -14,8 +14,9 @@
         <p>{{ publication.description }}</p>
       </div>
       <div class='col-4'>
-        <span>Picture
-        </span>
+        {% if publication.pet.picture %}
+        <img src= "/media/{{publication.pet.picture}}" alt="Fotografia" height="100" width="100" align=right>
+        {% endif %}
       </div>
     </div>
     <hr/>
