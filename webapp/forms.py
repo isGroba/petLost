@@ -17,4 +17,4 @@ class CreatePublication(forms.ModelForm):
 class CreatePet(forms.ModelForm):
     class Meta:
         model = models.Pet
-        fields = ('name', 'type_animal', 'breed', 'description', 'color')
+        fields = ('name', 'type_animal', 'breed', 'description', 'color', 'picture')
