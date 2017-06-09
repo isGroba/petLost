@@ -3,16 +3,23 @@
 <a href="/webapp/home/">home/</a>
 {% block content %}
 {% for publication in publications %}
-  <div>
-      <h6>Fecha publicación: {{ publication.date }}</h6>
-    <h3>
-      <a href="{% url 'publication-detail' pk=publication.pk %}">{{ publication.title}}</a>
-    </h3>
-
-    <h5><a href="{% url 'pet-detail' pk=publication.pet.pk %}">{{ publication.pet }}</a></h5>
-    <p>{{ publication.description }}</p>
+  <div class='container-fluid'>
+    <div class='row'>
+      <h3 class='col-8'>
+        <a href="{% url 'publication-detail' pk=publication.pk %}">{{ publication.title}}</a>
+      </h3>
+      <h6 class='col-4' align=right>{{ publication.date }}</h6>
+      <div class='col-8'>
+        <h5><a href="{% url 'pet-detail' pk=publication.pet.pk %}">{{ publication.pet }}</a></h5>
+        <p>{{ publication.description }}</p>
+      </div>
+      <div class='col-4'>
+        <span>Picture
+        </span>
+      </div>
+    </div>
+    <hr/>
   </div>
-  <hr/>
     {% empty %}
      <p>No hay publicaciones</p>
     {% endfor %}
