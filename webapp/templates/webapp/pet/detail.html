@@ -7,5 +7,7 @@
     <dt>{{ pet.description }}</dt>
     <dt>{{ pet.color }}</dt>
     <dt>nombre: {{ pet.picture }}</dt>
-    <dd> <img src= "/media/{{pet.picture}}" alt="Fotografia {{ pet.name }}" height="100" width="100"> </dd>
+    {% if pet.picture %}
+    <dt> <img src= "/media/{{pet.picture}}" alt="Fotografia {{ pet.name }}" height="100" width="100"> </dt>
+    {% endif %}
 {% endblock %}
