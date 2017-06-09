@@ -9,9 +9,10 @@
       <a href="{% url 'publication-detail' pk=publication.pk %}">{{ publication.title}}</a>
     </h3>
 
-    <h5>{{ publication.pet }}</h5>
+    <h5><a href="{% url 'pet-detail' pk=publication.pet.pk %}">{{ publication.pet }}</a></h5>
     <p>{{ publication.description }}</p>
   </div>
+  <hr/>
     {% empty %}
      <p>No hay publicaciones</p>
     {% endfor %}
