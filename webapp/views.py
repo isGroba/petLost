@@ -6,7 +6,41 @@ from core import models
 from webapp import forms
 
 
-class Home(generic.TemplateView):
+class Option:
+    def __init__(self, name, viewname, args=None, kwargs=None, menu=None):
+        self.name = name
+        self.url = reverse(viewname, args, kwargs) if viewname else False
+        self.menu = menu
+
+    def is_current(self):
+        return self.menu.current == self.name
+
+
+class MenuBar:
+    def __init__(self, current):
+        self.current = current
+
+    def get_options(self):
+        return [
+            Option('Publicaciones', 'publication-list', menu=self),
+            Option('Mascotas', 'pet-list', menu=self),
+            Option('Configuracion cuenta', None, menu=self),
+        ]
+
+    def __iter__(self):
+        return iter(self.get_options())
+
+
+class MenuMixin:
+    name = ''
+
+    def get_context_data(self, **kwargs):
+        if 'menu' not in kwargs:
+            kwargs['menu'] = MenuBar(self.name)
+        return super().get_context_data(**kwargs)
+
+
+class Home(MenuMixin, generic.TemplateView):
     template_name = 'webapp/home.html'
     name = 'Página principal'
 
@@ -16,7 +50,7 @@ class Home(generic.TemplateView):
         return context
 
 
-class PublicationList(generic.ListView):
+class PublicationList(MenuMixin, generic.ListView):
     template_name = 'webapp/publication/list.html'
     name = 'Publicaciones'
     model = models.Publication
@@ -25,7 +59,7 @@ class PublicationList(generic.ListView):
         return models.Publication.objects.all()
 
 
-class PublicationCreate(SuccessMessageMixin, generic.CreateView):
+class PublicationCreate(MenuMixin, SuccessMessageMixin, generic.CreateView):
     model = models.Publication
     form_class = forms.CreatePublication
     template_name = 'webapp/publication/create.html'
@@ -36,13 +70,13 @@ class PublicationCreate(SuccessMessageMixin, generic.CreateView):
         return reverse('publication-detail', args=[self.object.id])
 
 
-class PublicationDetail(generic.DetailView):
+class PublicationDetail(MenuMixin, generic.DetailView):
     model = models.Publication
     template_name = 'webapp/publication/detail.html'
     name = 'Detalle publicacion'
 
 
-class PetList(generic.ListView):
+class PetList(MenuMixin, generic.ListView):
     template_name = 'webapp/pet/list.html'
     name = 'Mascotas'
     model = models.Pet
@@ -51,7 +85,7 @@ class PetList(generic.ListView):
         return models.Pet.objects.all()
 
 
-class PetCreate(SuccessMessageMixin, generic.CreateView):
+class PetCreate(MenuMixin, SuccessMessageMixin, generic.CreateView):
     model = models.Pet
     form_class = forms.CreatePet
     template_name = 'webapp/pet/create.html'
@@ -60,7 +94,7 @@ class PetCreate(SuccessMessageMixin, generic.CreateView):
     success_url = '/webapp/publications/new/'
 
 
-class PetDetail(generic.DetailView):
+class PetDetail(MenuMixin, generic.DetailView):
     model = models.Pet
     template_name = 'webapp/pet/detail.html'
     name = 'Detalle mascota'
