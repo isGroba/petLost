@@ -24,6 +24,8 @@ class MenuBar:
         return [
             Option('Publicaciones', 'publication-list', menu=self),
             Option('Mascotas', 'pet-list', menu=self),
+            Option('Nueva publicación', None, menu=self),
+            Option('Mis publicaciones', None, menu=self),
             Option('Configuracion cuenta', None, menu=self),
         ]
 
