@@ -8,7 +8,6 @@
     {% for color in pet.color.all %}
         <dt>{{ color }}</dt>
     {% endfor %}
-    <dt>nombre: {{ pet.picture }}</dt>
     {% if pet.picture %}
     <dt> <img src= "/media/{{pet.picture}}" alt="Fotografia {{ pet.name }}" height="100" width="100"> </dt>
     {% endif %}
