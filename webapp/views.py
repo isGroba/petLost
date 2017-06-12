@@ -42,20 +42,21 @@ class MenuMixin:
         return super().get_context_data(**kwargs)
 
 
-class Home(MenuMixin, generic.TemplateView):
+class Home(MenuMixin, generic.ListView):
     template_name = 'webapp/home.html'
     name = 'Página principal'
+    paginate_by = 5
+    model = models.Publication
 
-    def get_context_data(self, **kwargs):
-        context = super(Home, self).get_context_data(**kwargs)
-        context['publications'] = models.Publication.objects.all().order_by('-date')
-        return context
+    def get_queryset(self):
+        return models.Publication.objects.all().order_by('-date')
 
 
 class PublicationList(MenuMixin, generic.ListView):
     template_name = 'webapp/publication/list.html'
     name = 'Publicaciones'
     model = models.Publication
+    paginate_by = 5
 
     def get_queryset(self):
         return models.Publication.objects.all()
@@ -82,6 +83,7 @@ class PetList(MenuMixin, generic.ListView):
     template_name = 'webapp/pet/list.html'
     name = 'Mascotas'
     model = models.Pet
+    paginate_by = 5
 
     def get_queryset(self):
         return models.Pet.objects.all()

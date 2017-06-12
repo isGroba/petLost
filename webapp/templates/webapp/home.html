@@ -2,7 +2,7 @@
 {% block body %}
 <a href="/webapp/home/">home/</a>
 
-{% for publication in publications %}
+{% for publication in object_list %}
   <hr/>
   <div class='row'>
     <h3 class='col-8'>
@@ -24,4 +24,5 @@
   {% empty %}
   <p>No hay publicaciones</p>
   {% endfor %}
+      {% include './__pagination.html' %}
 {% endblock %}
