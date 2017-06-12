@@ -1,5 +1,4 @@
 Django
-django-debug-toolbar
 django-spurl
 psycopg2
 Pillow
