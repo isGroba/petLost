@@ -56,6 +56,7 @@ class PublicationList(MenuMixin, generic.ListView):
     template_name = 'webapp/publication/list.html'
     name = 'Publicaciones'
     model = models.Publication
+    paginate_by = 5
 
     def get_queryset(self):
         return models.Publication.objects.all()
@@ -82,6 +83,7 @@ class PetList(MenuMixin, generic.ListView):
     template_name = 'webapp/pet/list.html'
     name = 'Mascotas'
     model = models.Pet
+    paginate_by = 5
 
     def get_queryset(self):
         return models.Pet.objects.all()
