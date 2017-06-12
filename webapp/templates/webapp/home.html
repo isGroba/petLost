@@ -1,28 +1,27 @@
 {% extends './__base.html' %}
 {% block body %}
 <a href="/webapp/home/">home/</a>
-{% block content %}
+
 {% for publication in publications %}
-  <div class='container-fluid'>
-    <div class='row'>
-      <h3 class='col-8'>
-        <a href="{% url 'publication-detail' pk=publication.pk %}">{{ publication.title}}</a>
-      </h3>
-      <h6 class='col-4' align=right>{{ publication.date }}</h6>
-      <div class='col-8'>
-        <h5><a href="{% url 'pet-detail' pk=publication.pet.pk %}">{{ publication.pet }}</a></h5>
-        <p>{{ publication.description }}</p>
-      </div>
-      <div class='col-4'>
-        {% if publication.pet.picture %}
-        <img src= "/media/{{publication.pet.picture}}" alt="Fotografia" height="100" width="100" align=right>
-        {% endif %}
-      </div>
-    </div>
-    <hr/>
+  <hr/>
+  <div class='row'>
+    <h3 class='col-8'>
+      <a href="{% url 'publication-detail' pk=publication.pk %}">{{ publication.title}}</a>
+    </h3>
+    <h6 class='col-4' align=right>{{ publication.date }}</h6>
   </div>
-    {% empty %}
-     <p>No hay publicaciones</p>
-    {% endfor %}
-{% endblock content %}
+  <div class='row'>
+    <div class='col-8'>
+      <h5><a href="{% url 'pet-detail' pk=publication.pet.pk %}">{{ publication.pet }}</a></h5>
+      <p>{{ publication.description }}</p>
+    </div>
+    <div class='col-4'>
+      {% if publication.pet.picture %}
+      <a href="/media/{{publication.pet.picture}}"><img src= "/media/{{publication.pet.picture}}" alt="Fotografia" height="100" width="100" align=right></a>
+      {% endif %}
+    </div>
+  </div>
+  {% empty %}
+  <p>No hay publicaciones</p>
+  {% endfor %}
 {% endblock %}
