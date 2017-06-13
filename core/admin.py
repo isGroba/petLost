@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Color, Member, Pet, Publication
+from .models import Color, Pet, Publication
 
 
 class PublicationAdmin(admin.ModelAdmin):
@@ -26,14 +26,6 @@ class ColorAdmin(admin.ModelAdmin):
     list_display = ('name', 'code_color')
 
 
-class MemberAdmin(admin.ModelAdmin):
-    fields = ['name', 'mail', 'phone', 'city']
-    search_fields = ['name', 'city']
-
-    list_display = ('name', 'mail', 'phone', 'city')
-
-
 admin.site.register(Pet, PetAdmin)
 admin.site.register(Publication, PublicationAdmin)
 admin.site.register(Color, ColorAdmin)
-admin.site.register(Member, MemberAdmin)

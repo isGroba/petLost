@@ -2,6 +2,9 @@ from django import forms
 
 from core import models
 
+from django.contrib.auth.models import User
+from registration.forms import RegistrationForm
+
 
 class CreatePublication(forms.ModelForm):
     class Meta:

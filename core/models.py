@@ -1,18 +1,5 @@
 from django.db import models
-
-
-class Member(models.Model):
-
-    class Meta:
-        verbose_name = 'Socio'
-
-    name = models.TextField(verbose_name='Nombre')
-    mail = models.EmailField()
-    phone = models.CharField(verbose_name='Número de teléfono', null=True, blank=True, max_length=15)
-    city = models.TextField(verbose_name='Ciudad', null=True, blank=True, max_length=20)
-
-    def __str__(self):
-        return '{}'.format(self.name)
+from django.contrib.auth.models import User
 
 
 class Color(models.Model):
@@ -60,7 +47,7 @@ class Publication(models.Model):
     date = models.DateField(verbose_name='Fecha', auto_now=True)
     pet = models.ForeignKey(Pet, on_delete=models.PROTECT)
     location = models.TextField(verbose_name='Localización', default='', max_length=100)
-    # user = models.ForeignKey(User, on_delete=models.PROTECT)
+    member = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
         return '{}'.format(self.title)

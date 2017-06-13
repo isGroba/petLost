@@ -19,6 +19,7 @@ pet = [
 urlpatterns = [
     url(r'^$', RedirectView.as_view(url='home/')),
     url(r'^home/$', views.Home.as_view(), name='home'),
+    url(r'^login/$', views.Login.as_view(), name='login'),
     url(r'^publications/', include(publications)),
     url(r'^pet/', include(pet)),
 ]
