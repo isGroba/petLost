@@ -4,6 +4,7 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+django-registration==2.2
 django-debug-toolbar==1.8
 django-spurl==0.6.4
 django==1.11.1

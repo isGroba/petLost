@@ -1,6 +1,10 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import reverse
 from django.views import generic
+
+from registration.views import RegistrationView
 
 from core import models
 from webapp import forms
@@ -44,6 +48,19 @@ class MenuMixin:
         return super().get_context_data(**kwargs)
 
 
+class Register(MenuMixin, RegistrationView):
+    pass
+
+
+class Login(MenuMixin, LoginView):
+    template_name = 'registration/login.html'
+    redirect_authenticated_user = 'home'
+
+
+class Logout(LogoutView):
+    pass
+
+
 class Home(MenuMixin, generic.ListView):
     template_name = 'webapp/home.html'
     name = 'Página principal'
@@ -64,7 +81,7 @@ class PublicationList(MenuMixin, generic.ListView):
         return models.Publication.objects.all()
 
 
-class PublicationCreate(MenuMixin, SuccessMessageMixin, generic.CreateView):
+class PublicationCreate(LoginRequiredMixin, MenuMixin, SuccessMessageMixin, generic.CreateView):
     model = models.Publication
     form_class = forms.CreatePublication
     template_name = 'webapp/publication/create.html'

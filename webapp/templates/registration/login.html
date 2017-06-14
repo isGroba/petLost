@@ -1,0 +1,31 @@
+{% extends '../webapp/__base.html' %}
+{% block body %}
+<a href="/webapp/home/">home/</a>
+<h3>Para crear publicaciones nuevas debes crear una cuenta o loguearte</h3>
+<div class="row">
+    <div class="col-4" >
+        <h4>Logueate</h4>
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+            <table>
+            <tr>
+                <td>form.username.label_tag</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>form.password.label_tag</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            </table>
+            <input type="submit" value="Aceptar" />
+            {% if form.errors %}
+            <p>Usuario o contraseña incorrecta. Inténtalo de nuevo.</p>
+            {% endif %}
+        </form>
+        <h4>Logueate</h4>
+        <a href="/webapp/register/">Crear cuenta nueva</a>
+    </div>
+{% block registration %}
+{% endblock registration %}
+</div>
+{% endblock body %}

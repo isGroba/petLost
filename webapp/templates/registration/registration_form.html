@@ -1,0 +1,15 @@
+{% extends '../webapp/__base.html' %}
+{% block body %}
+    <div class="col-6">
+        <h4>Regístrate</h4>
+        <form method="post">
+        {% csrf_token %}
+        {% include '../webapp/_form_fields.html' %}
+        {% if form.errors %}
+          <p>Usuario o contraseña incorrecta. Inténtalo de nuevo.</p>
+        {% endif %}
+          <input type="submit" value="Guardar" />
+          <a href="/webapp/home/">Volver</a>
+        </form>
+    </div>
+{% endblock body %}
