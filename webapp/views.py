@@ -1,12 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import reverse, redirect, render_to_response, render
+from django.shortcuts import redirect, reverse
 from django.views import generic
+
 from registration.views import RegistrationView
 
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse_lazy
 from core import models
 from webapp import forms
 
@@ -124,10 +123,15 @@ class NewPet(MenuMixin, generic.FormView):
     template_name = 'webapp/pet/create.html'
     name = 'Nueva mascota creada'
 
-    def form_valid(self, form):
-        publication = form.execute()
-        print(publication.id)
-        print('llega3')
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form, request)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form, request):
+        publication = form.execute(request.user)
         return redirect('publication-edit', publication.id)
 
 

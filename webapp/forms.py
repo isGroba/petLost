@@ -25,6 +25,7 @@ class EditPublication(forms.ModelForm):
             'pet': forms.HiddenInput(),
         }
 
+
 class CreatePet(forms.ModelForm):
     class Meta:
         model = models.Pet
@@ -46,17 +47,20 @@ class NewPet(forms.Form):
     breed = forms.CharField(label='Raza')
     description = forms.CharField(label='Descripción')
     picture = forms.ImageField(label='Foto', required=False)
-    color = forms.MultipleChoiceField(choices = models.Color.objects.values_list('id','name') , widget=forms.CheckboxSelectMultiple)
+    color = forms.MultipleChoiceField(
+        choices=models.Color.objects.values_list('id', 'name'), widget=forms.CheckboxSelectMultiple)
 
-    def execute(self):
+    def execute(self, usuario):
         cleaned_data = self.cleaned_data
         pet = models.Pet.objects.create(
-                name = cleaned_data['name'],
-                type_animal = cleaned_data['type_animal'],
-                breed = cleaned_data['breed'],
-                description = cleaned_data['description'],
-                picture = cleaned_data['picture'],
+                name=cleaned_data['name'],
+                type_animal=cleaned_data['type_animal'],
+                breed=cleaned_data['breed'],
+                description=cleaned_data['description'],
+                picture=cleaned_data['picture'],
             )
         pet.color = cleaned_data['color']
-        publication = models.Publication.objects.create(title = '', description = '', pet = pet)
+
+        member = usuario
+        publication = models.Publication.objects.create(title='', description='', pet=pet, member=member)
         return publication

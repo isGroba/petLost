@@ -4,7 +4,7 @@ from .models import Color, Pet, Publication
 
 
 class PublicationAdmin(admin.ModelAdmin):
-    fields = ['title', 'description', 'pet', 'location']
+    fields = ['title', 'description', 'pet', 'location', 'member']
     search_fields = ['title', 'breed']
 
     list_display = ('title', 'description', 'pet', 'date', 'location')
