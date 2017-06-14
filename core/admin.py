@@ -4,18 +4,18 @@ from .models import Color, Pet, Publication
 
 
 class PublicationAdmin(admin.ModelAdmin):
-    fields = ['title', 'description', 'pet', 'location', 'member']
+    fields = ['title', 'description', 'pet', 'member']
     search_fields = ['title', 'breed']
 
-    list_display = ('title', 'description', 'pet', 'date', 'location')
-    list_filter = ['date', 'location']
+    list_display = ('title', 'description', 'pet', 'date')
+    list_filter = ['date']
 
 
 class PetAdmin(admin.ModelAdmin):
-    fields = ['name', 'type_animal', 'breed', 'description', 'color', 'picture']
+    fields = ['name', 'type_animal', 'breed', 'description', 'color', 'picture', 'location']
     search_fields = ['name', 'breed']
 
-    list_display = ('name', 'type_animal', 'breed', 'description')
+    list_display = ('name', 'type_animal', 'breed', 'description', 'location')
     list_filter = ['type_animal', 'breed']
 
 
