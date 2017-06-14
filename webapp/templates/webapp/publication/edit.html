@@ -1,10 +1,8 @@
 {% extends '../__base.html' %}
 
 {% block body %}
-<form class="custom-form element" action="{% url 'publication-create' %}" method="post">
+<form class="custom-form element" action="{% url 'publication-edit' publication.id %}" method="post">
 {% include '../_form_fields.html' %}
-{{form.title}}
-{{pet.id}}
   <div class="form-group">
     <input type="submit" class="btn btn-primary" value="Crear">
     <a href="{% url 'publication-list' %}" class="btn btn-link">Volver sin guardar</a>
