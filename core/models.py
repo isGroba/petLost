@@ -31,6 +31,7 @@ class Pet(models.Model):
     breed = models.TextField(verbose_name='Raza', null=True, blank=True,)
     description = models.TextField(verbose_name='Descripción', null=True, blank=True, max_length=250)
     picture = models.ImageField(verbose_name='Foto', upload_to='pets', blank=True, null=True)
+    location = models.CharField('Ubicacion', default='', max_length=50)
     color = models.ManyToManyField(Color)
 
     def __str__(self):
@@ -46,7 +47,6 @@ class Publication(models.Model):
     description = models.TextField(verbose_name='Descripción', null=True, blank=True, max_length=250)
     date = models.DateField(verbose_name='Fecha', auto_now=True)
     pet = models.ForeignKey(Pet, on_delete=models.PROTECT)
-    location = models.TextField(verbose_name='Localización', default='', max_length=100)
     member = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
