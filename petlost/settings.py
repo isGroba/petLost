@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'spurl',
+    'debug_toolbar',
     # Custom apps
     'core',
 ]
@@ -60,6 +61,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'petlost.urls'
@@ -146,3 +148,8 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
 LOGIN_URL = '/webapp/login/'
+
+# Debug-tools
+# https://django-debug-toolbar.readthedocs.io/en/stable/
+
+INTERNAL_IPS = '127.0.0.1'

@@ -1,14 +1,27 @@
 {% extends '../__base.html' %}
 {% block body %}
-<h3>{{pet.name}}</h3>
-<dl>
-    <dt>{{ pet.type_animal }}</dt>
-    <dt>{{ pet.breed }}</dt>
-    <dt>{{ pet.description }}</dt>
-    {% for color in pet.color.all %}
-        <dt>{{ color }}</dt>
-    {% endfor %}
-    {% if pet.picture %}
-    <dt> <img src= "/media/{{pet.picture}}" alt="Fotografia {{ pet.name }}" height="100" width="100"> </dt>
-    {% endif %}
+<h3>Nombre: {{pet.name}}</h3>
+<table>
+  <tbody>
+    <tr>
+      {% if pet.picture %}
+      <td rowspan="3"><img src= "/media/{{pet.picture}}" alt="Fotografia {{ pet.name }}" height="100" width="100"></td>
+      {% endif %}
+      <td>Tipo de animal: {{ pet.type_animal }}</td>
+    </tr>
+    <tr>
+      <td>Raza: {{ pet.breed }}</td>
+    </tr>
+    <tr>
+      <td>Color: 
+        {% for color in pet.color.all %}
+        {{ color }}
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">{{ pet.description }}</td>
+    </tr>
+  </tbody>
+</table>
 {% endblock %}
