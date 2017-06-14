@@ -1,11 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import reverse
+from django.shortcuts import reverse, redirect, render_to_response, render
 from django.views import generic
-
 from registration.views import RegistrationView
 
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse_lazy
 from core import models
 from webapp import forms
 
@@ -92,6 +93,16 @@ class PublicationCreate(LoginRequiredMixin, MenuMixin, SuccessMessageMixin, gene
         return reverse('publication-detail', args=[self.object.id])
 
 
+class PublicationEdit(MenuMixin, generic.UpdateView):
+    model = models.Publication
+    form_class = forms.EditPublication
+    template_name = 'webapp/publication/edit.html'
+    name = 'Crear Publicación'
+
+    def get_success_url(self):
+        return reverse('publication-detail', args=[self.object.id])
+
+
 class PublicationDetail(MenuMixin, generic.DetailView):
     model = models.Publication
     template_name = 'webapp/publication/detail.html'
@@ -108,13 +119,16 @@ class PetList(MenuMixin, generic.ListView):
         return models.Pet.objects.all()
 
 
-class PetCreate(MenuMixin, SuccessMessageMixin, generic.CreateView):
-    model = models.Pet
-    form_class = forms.CreatePet
+class NewPet(MenuMixin, generic.FormView):
+    form_class = forms.NewPet
     template_name = 'webapp/pet/create.html'
-    succes_message = ('Mascota creada correctamente')
-    name = 'Crear mascota'
-    success_url = '/webapp/publications/new/'
+    name = 'Nueva mascota creada'
+
+    def form_valid(self, form):
+        publication = form.execute()
+        print(publication.id)
+        print('llega3')
+        return redirect('publication-edit', publication.id)
 
 
 class PetDetail(MenuMixin, generic.DetailView):

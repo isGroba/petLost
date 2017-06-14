@@ -7,11 +7,12 @@ publications = [
     url(r'^$', views.PublicationList.as_view(), name='publication-list'),
     url(r'^new/$', views.PublicationCreate.as_view(), name='publication-create'),
     url(r'^(?P<pk>[^/]+)/$', views.PublicationDetail.as_view(), name='publication-detail'),
+    url(r'^(?P<pk>[^/]+)/edit/$', views.PublicationEdit.as_view(), name='publication-edit'),
 ]
 
 pet = [
     url(r'^$', views.PetList.as_view(), name='pet-list'),
-    url(r'^new/$', views.PetCreate.as_view(), name='pet-create'),
+    url(r'^new/$', views.NewPet.as_view(), name='pet-create'),
     url(r'^(?P<pk>[^/]+)/$', views.PetDetail.as_view(), name='pet-detail'),
 ]
 
