@@ -1,12 +1,13 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import reverse
 from django.views import generic
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView
+
+from registration.views import RegistrationView
 
 from core import models
 from webapp import forms
-from registration.views import RegistrationView
 
 
 class Option:
