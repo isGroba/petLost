@@ -6,6 +6,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 from core import models
 from webapp import forms
+from registration.views import RegistrationView
 
 
 class Option:
@@ -44,6 +45,10 @@ class MenuMixin:
             kwargs['pet_lost'] = models.Pet.objects.count()
             kwargs['publi'] = models.Publication.objects.count()
         return super().get_context_data(**kwargs)
+
+
+class Register(MenuMixin, RegistrationView):
+    pass
 
 
 class Login(MenuMixin, LoginView):

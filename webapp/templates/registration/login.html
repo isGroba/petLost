@@ -9,11 +9,11 @@
         {% csrf_token %}
             <table>
             <tr>
-                <td>Nombre usuario</td>
+                <td>form.username.label_tag</td>
                 <td>{{ form.username }}</td>
             </tr>
             <tr>
-                <td>Contraseña</td>
+                <td>form.password.label_tag</td>
                 <td>{{ form.password }}</td>
             </tr>
             </table>
@@ -23,7 +23,7 @@
             {% endif %}
         </form>
         <h4>Logueate</h4>
-        <a href="/accounts/register/">Crear cuenta nueva</a>
+        <a href="/webapp/register/">Crear cuenta nueva</a>
     </div>
 {% block registration %}
 {% endblock registration %}
