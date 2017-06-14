@@ -4,8 +4,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect, reverse
 from django.views import generic
 
-from registration.views import RegistrationView
-
 from core import models
 from webapp import forms
 
@@ -46,10 +44,6 @@ class MenuMixin:
             kwargs['pet_lost'] = models.Pet.objects.count()
             kwargs['publi'] = models.Publication.objects.count()
         return super().get_context_data(**kwargs)
-
-
-class Register(MenuMixin, RegistrationView):
-    pass
 
 
 class Login(MenuMixin, LoginView):
