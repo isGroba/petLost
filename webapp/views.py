@@ -25,8 +25,7 @@ class MenuBar:
     def get_options(self):
         return [
             Option('Publicaciones', 'publication-list', menu=self),
-            Option('Mascotas', 'pet-list', menu=self),
-            Option('Nueva publicación', None, menu=self),
+            Option('Nueva publicación', 'pet-create', menu=self),
             Option('Mis publicaciones', None, menu=self),
             Option('Configuracion cuenta', None, menu=self),
         ]
@@ -75,17 +74,6 @@ class PublicationList(MenuMixin, generic.ListView):
         return models.Publication.objects.all()
 
 
-class PublicationCreate(LoginRequiredMixin, MenuMixin, SuccessMessageMixin, generic.CreateView):
-    model = models.Publication
-    form_class = forms.CreatePublication
-    template_name = 'webapp/publication/create.html'
-    success_message = ('Publicacion creada correctamente')
-    name = 'Crear publicacion'
-
-    def get_success_url(self):
-        return reverse('publication-detail', args=[self.object.id])
-
-
 class PublicationEdit(MenuMixin, generic.UpdateView):
     model = models.Publication
     form_class = forms.EditPublication
@@ -112,10 +100,10 @@ class PetList(MenuMixin, generic.ListView):
         return models.Pet.objects.all()
 
 
-class NewPet(MenuMixin, generic.FormView):
+class NewPet(LoginRequiredMixin,MenuMixin, generic.FormView):
     form_class = forms.NewPet
     template_name = 'webapp/pet/create.html'
-    name = 'Nueva mascota creada'
+    name = 'Datos del animal'
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
