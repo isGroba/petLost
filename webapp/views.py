@@ -25,7 +25,7 @@ class MenuBar:
         return [
             Option('Publicaciones', 'publication-list', menu=self),
             Option('Nueva publicación', 'pet-create', menu=self),
-            Option('Mis publicaciones', None, menu=self),
+            Option('Mis publicaciones', 'own-publication-list', menu=self),
             Option('Configuracion cuenta', None, menu=self),
         ]
 
@@ -70,7 +70,7 @@ class PublicationList(MenuMixin, generic.ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        return models.Publication.objects.all()
+        return models.Publication.objects.all().order_by('-date')
 
 
 class PublicationEdit(MenuMixin, generic.UpdateView):
@@ -120,3 +120,13 @@ class PetDetail(MenuMixin, generic.DetailView):
     model = models.Pet
     template_name = 'webapp/pet/detail.html'
     name = 'Detalle mascota'
+
+
+class MyPublications(LoginRequiredMixin, MenuMixin, generic.ListView):
+    template_name = 'webapp/publication/list.html'
+    name = 'Publicaciones Propias'
+    model = models.Publication
+    paginate_by = 5
+
+    def get_queryset(self):
+        return models.Publication.objects.filter(member=self.request.user).order_by('-date')
