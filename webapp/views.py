@@ -1,6 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect, reverse
 from django.views import generic
 
@@ -25,9 +24,8 @@ class MenuBar:
     def get_options(self):
         return [
             Option('Publicaciones', 'publication-list', menu=self),
-            Option('Mascotas', 'pet-list', menu=self),
-            Option('Nueva publicación', None, menu=self),
-            Option('Mis publicaciones', None, menu=self),
+            Option('Nueva publicación', 'pet-create', menu=self),
+            Option('Mis publicaciones', 'own-publication-list', menu=self),
             Option('Configuracion cuenta', None, menu=self),
         ]
 
@@ -72,18 +70,7 @@ class PublicationList(MenuMixin, generic.ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        return models.Publication.objects.all()
-
-
-class PublicationCreate(LoginRequiredMixin, MenuMixin, SuccessMessageMixin, generic.CreateView):
-    model = models.Publication
-    form_class = forms.CreatePublication
-    template_name = 'webapp/publication/create.html'
-    success_message = ('Publicacion creada correctamente')
-    name = 'Crear publicacion'
-
-    def get_success_url(self):
-        return reverse('publication-detail', args=[self.object.id])
+        return models.Publication.objects.all().order_by('-date')
 
 
 class PublicationEdit(MenuMixin, generic.UpdateView):
@@ -112,10 +99,10 @@ class PetList(MenuMixin, generic.ListView):
         return models.Pet.objects.all()
 
 
-class NewPet(MenuMixin, generic.FormView):
+class NewPet(LoginRequiredMixin, MenuMixin, generic.FormView):
     form_class = forms.NewPet
     template_name = 'webapp/pet/create.html'
-    name = 'Nueva mascota creada'
+    name = 'Datos del animal'
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
@@ -133,3 +120,13 @@ class PetDetail(MenuMixin, generic.DetailView):
     model = models.Pet
     template_name = 'webapp/pet/detail.html'
     name = 'Detalle mascota'
+
+
+class MyPublications(LoginRequiredMixin, MenuMixin, generic.ListView):
+    template_name = 'webapp/publication/list.html'
+    name = 'Publicaciones Propias'
+    model = models.Publication
+    paginate_by = 5
+
+    def get_queryset(self):
+        return models.Publication.objects.filter(member=self.request.user).order_by('-date')
