@@ -1,6 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect, reverse
 from django.views import generic
 
@@ -100,7 +99,7 @@ class PetList(MenuMixin, generic.ListView):
         return models.Pet.objects.all()
 
 
-class NewPet(LoginRequiredMixin,MenuMixin, generic.FormView):
+class NewPet(LoginRequiredMixin, MenuMixin, generic.FormView):
     form_class = forms.NewPet
     template_name = 'webapp/pet/create.html'
     name = 'Datos del animal'
