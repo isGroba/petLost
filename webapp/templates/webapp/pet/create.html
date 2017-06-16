@@ -4,6 +4,7 @@
 <form class="custom-form element" action="{% url 'pet-create' %}" method="post" enctype="multipart/form-data">
 {% include '../_form_fields.html' %}
   <div class="form-group">
+    <p>Arrastra el marcador para indicar la ubicación</p>
     <div id="map" style="height:400px; width:100%;"></div>
     <input type="submit" class="btn btn-primary" value="Siguiente">
     <a href="{% url 'publication-list' %}" class="btn btn-link">Volver sin guardar</a>
