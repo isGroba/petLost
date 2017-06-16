@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect, reverse
@@ -115,11 +116,21 @@ class NewPet(LoginRequiredMixin, MenuMixin, generic.FormView):
         publication = form.execute(request.user)
         return redirect('publication-edit', publication.id)
 
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        kwargs['key'] = settings.POS_API_KEY
+        return kwargs
+
 
 class PetDetail(MenuMixin, generic.DetailView):
     model = models.Pet
     template_name = 'webapp/pet/detail.html'
     name = 'Detalle mascota'
+
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        kwargs['key'] = settings.POS_API_KEY
+        return kwargs
 
 
 class MyPublications(LoginRequiredMixin, MenuMixin, generic.ListView):
