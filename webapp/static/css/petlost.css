@@ -1,0 +1,123 @@
+body {
+    background-color: #FAFAFA;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #3d3d3d;
+}
+
+a{
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #333333;
+    text-decoration:none;
+}
+
+
+
+footer{
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.statistics{
+    border: 2px solid #4e4e4e;
+    padding: 1px 2px 1px 2px;
+}
+input {
+    border: 1px solid #B2B2B2;
+    border-radius: 0;
+    line-height: 1.25rem;
+    font-size: 1rem;
+    padding: .5rem;
+}
+
+input[type=submit]:hover {
+    cursor: pointer !important;
+}
+
+.list-group-item{
+    background-color:  	#94b8ba;
+}
+
+.list-group-item.active{
+    background-color:  	#85a5a7;
+    border-color: #353535;
+}
+
+/*---- Buttons ----*/
+
+.btn {
+    background-color: #87b8c3;
+    border: none;
+    border-radius: 1;
+    border-color: transparent;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+}
+
+.btn:hover {
+    background-color: #9fc6cf;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-link:hover {
+    background-color: #9fc6cf;
+    color: white;
+}
+
+.btn-success {
+    background-color: #77c475;
+}
+
+.btn-success:hover {
+    background-color: #57c154;
+}
+
+.btn-warning {
+    background-color: #e8ba59;
+}
+
+.btn-error,
+.btn-danger {
+    background-color: #f47b78;
+}
+
+.btn-cancel {
+    background-color: #ccc;
+    color: #3d3d3d;
+}
+
+
+/*---- Nav ----*/
+
+.navbar {
+    background-color: #79a5af;
+}
+
+.navbar li a:hover {
+    color: #353535;
+    text-decoration: underline;
+}
+
+.navbar-img {
+    max-height: 40px;
+}
+
+.nav-link {
+    color: white;
+    text-transform: uppercase;
+}
+
+.message {
+    margin: 30px 0 0 0;
+}
