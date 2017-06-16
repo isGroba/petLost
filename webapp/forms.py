@@ -32,6 +32,7 @@ class NewPet(forms.Form):
     picture = forms.ImageField(label='Foto', required=False)
     color = forms.MultipleChoiceField(
         choices=models.Color.objects.values_list('id', 'name'), widget=forms.CheckboxSelectMultiple)
+    location = forms.CharField(label='Ubicación')
 
     def execute(self, usuario):
         cleaned_data = self.cleaned_data
@@ -40,6 +41,7 @@ class NewPet(forms.Form):
                 type_animal=cleaned_data['type_animal'],
                 breed=cleaned_data['breed'],
                 description=cleaned_data['description'],
+                location=cleaned_data['location'],
                 picture=cleaned_data['picture'],
             )
         pet.color = cleaned_data['color']
