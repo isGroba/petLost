@@ -2,7 +2,19 @@
 
 {% block body %}
 <form class="custom-form element" action="{% url 'pet-create' %}" method="post" enctype="multipart/form-data">
-{% include '../_form_fields.html' %}
+
+
+<div class="form-group">
+  <label for="{{ form.name.id_for_label }}" class="form-control-label col-2">{{ form.color.label }}
+  {% for color in form.color %}
+  <div class="{{color.id_for_label}}">
+  {{ color }}
+  </div>
+  {% endfor %}
+  </label>
+  <div class="form-control-feedback">{{ field.errors }}</div>
+</div>
+
   <div class="form-group">
     <small class="text-muted"> * Arrastra el marcador para indicar la ubicación exacta</small>
     <div id="map" style="height:400px; width:100%;"></div>

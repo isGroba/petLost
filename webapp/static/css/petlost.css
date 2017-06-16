@@ -188,16 +188,17 @@ input[type=submit]:hover {
 
 /*------ Colors ------*/
 
-.black{
+.id_color_0{
     background-color: #000000;
     width: 20px;
     height:20px;
     border-style: solid;
     margin: 1 1 1 1;
     float:left;
+    color : #FFFFFF;
 }
 
-.white{
+.id_color_1{
     background-color: #FFFFFF;
     width: 20px;
     height:20px;
@@ -235,6 +236,9 @@ input[type=submit]:hover {
     border-color: #043135;
     margin: 1 1 1 1;
     float:left;
+}
+.id_color_2{
+    background-color: #8B4513;
 }
 
 .yellow{
