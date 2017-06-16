@@ -1,7 +1,7 @@
 body {
-    background-color: #FAFAFA;
+    background: #FAFAFA;
     font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
+    font-size: 1em;
     color: #3d3d3d;
 }
 
@@ -15,7 +15,9 @@ a:hover{
     text-decoration:none;
 }
 
-
+dt{
+    font-size : 20px;
+}
 
 footer{
     display: table;
@@ -27,8 +29,21 @@ footer{
 
 
 .statistics{
+    margin-top: 3px;
+    background-color : #85a5a7;
     border: 2px solid #4e4e4e;
     padding: 1px 2px 1px 2px;
+    border-radius: 50%;
+    padding: 40px;
+    text-align: center;
+    max-width: 300px;
+    max-height: 300px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 input {
     border: 1px solid #B2B2B2;
@@ -44,11 +59,24 @@ input[type=submit]:hover {
 
 .list-group-item{
     background-color:  	#94b8ba;
+    font-size: 14px;
+    border-radius: none;
 }
 
 .list-group-item.active{
     background-color:  	#85a5a7;
     border-color: #353535;
+}
+
+.title-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-shadow: 0px 9px 17px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 9px 17px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 9px 20px 0px rgba(50, 50, 50, 0.4);
+    background: #BBCBCC;
+    border-radius: 40px;
 }
 
 /*---- Buttons ----*/
@@ -120,4 +148,30 @@ input[type=submit]:hover {
 
 .message {
     margin: 30px 0 0 0;
+}
+
+/*------ Colors ------*/
+
+.black{
+    background-color: #000000;
+}
+
+.white{
+    background-color: #FFFFFF;
+}
+
+.brown{
+    background-color: #8B4513;
+}
+
+.yellow{
+    background-color: #DAA520;
+}
+
+.gray{
+    background-color: #4e4e4e;
+}
+
+.green{
+    background-color: #55FF00;
 }

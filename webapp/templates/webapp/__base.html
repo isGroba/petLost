@@ -1,7 +1,7 @@
 {% extends './__initial.html' %}
 
 {% block main %}
-<aside class="col-2">
+<aside class="hidden-xs-down col-md-3 col-lg-2">
   {% block menu %}
   <div class="list-group">
   {% for option in menu %}
@@ -16,12 +16,14 @@
 </aside>
 <main class="col-8">
   <br>
-  <h1>{{ view.name }}</h1>
+  <div class="title-box">
+    <h1>{{ view.name }}</h1>
+  </div>
   <br>
   {% block body %}
   {% endblock %}
 </main>
-<aside class="col-2">
+<aside>
   {% block stadistic %}
   <div class="statistics">
   <h3>Nuestros números</h3>
