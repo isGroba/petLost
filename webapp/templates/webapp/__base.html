@@ -3,7 +3,6 @@
 {% block main %}
 <aside class="hidden-xs-down col-md-3 col-lg-2">
   {% block menu %}
-  <br/>
   <div class="list-group">
   {% for option in menu %}
     {% if option.url %}
@@ -16,7 +15,6 @@
   {% endblock %}
 </aside>
 <main class="col">
-  <br>
   <div class="title-box">
     <h1>{{ view.name }}</h1>
   </div>
@@ -27,7 +25,7 @@
 <aside class="col-2">
   {% block stadistic %}
   <div>
-  <h3>Mascotas</h3>
+  <h5>Mascotas</h5>
   <ul class="list-group">
     <li class="list-group-item justify-content-between">
       <p>Perdidas</p>
@@ -42,7 +40,7 @@
       <h3><span class="badge badge-success badge-pill">???</span></h3>
     </li>
   </ul>
-  <h3>Publicaciones</h3>
+  <h5>Publicaciones</h5>
   <ul class="list-group">
       <li class="list-group-item justify-content-between">
       activas

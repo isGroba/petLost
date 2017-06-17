@@ -46,6 +46,12 @@ footer{
     color: #FBAE07;
 }
 
+    /* ---      --- */
+
+.fluid-container{
+    padding: 30 15 15 15;
+}
+
 input {
     border: 1px solid #B2B2B2;
     border-radius: 0;
