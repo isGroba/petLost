@@ -13,12 +13,13 @@
 <body>
   <header>
     <nav class="navbar navbar-toggleable-sm">
-      <div class="col-1">
-        <a class="navbar-brand" href="{% url 'home' %}">
-          <img src= "{% static 'icons/logo.png' %}" alt="Logo" height="100">
-        </a>
-      </div>
-      <div class=" ">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src= "{% static 'icons/logo.png' %}" alt="Logo" height="100">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
           {% if request.user.is_authenticated %}
           <a class="nav-item nav-link" href="# account">{{ request.user.username }}</a>
           <a class="nav-item nav-link justify-content-end" href="{% url 'logout' %}">Salir</a>
@@ -26,7 +27,7 @@
           <a class="nav-item nav-link" href="{% url 'login' %}">Inicia sesión</a>
           <a class="nav-item nav-link justify-content-end" href="/accounts/register/">Regístrate</a>
           {% endif %}
-        </div>
+      </div>
     </nav>
   </header>
   <main>
@@ -36,7 +37,44 @@
       </div>
     </div>
   </main>
-  <footer>PetLost, a different proyect, for a better life </footer>
+  <footer class="bd-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <p>El proyecto</p>
+          <ul class="bd-footer-links">
+            <li><a href="https://github.com/isGroba/petLost">GitHub</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <p>Nuestras herramientas</p>
+          <ul class="bd-footer-links">
+            <li><a href="https://github.com/">GitHub</a></li>
+            <li><a href="https://www.djangoproject.com/">Django</a></li>
+            <li><a href="https://v4-alpha.getbootstrap.com">Bootstrap</a></li>
+            <li><a href="https://trello.com">Trello</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <p>Nosotros</p>
+          <ul class="bd-footer-links">
+            <li><a href="https://github.com/isGroba/">@isGroba</a></li>
+            <li><a href="https://github.com/benitezdemiguel">@benitezdemiguel</a></li>
+          </ul>
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col text-center">
+          <small>Diseñado con toda la ilusión y amor del mundo por nuestros 
+            <a href="https://github.com/isGroba/petLost/graphs/contributors">contribuidores</a>
+            , para ayudar a nuestros queridos animales.
+          </small>
+          <p><small>PetLost, a different proyect, for a better life</small></p>
+        </div>
+      </div>
+    </div>
+  </footer class="bd-footer">
   <!-- jQuery first, then Tether, then Bootstrap JS. -->
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

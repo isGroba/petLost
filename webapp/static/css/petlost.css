@@ -6,12 +6,11 @@ body {
 }
 
 a{
-    color: #000000;
     text-decoration: none;
 }
 
 a:hover{
-    color: #333333;
+    color: #FBAE07;
     text-decoration:none;
 }
 
@@ -20,13 +19,33 @@ dt{
 }
 
 footer{
-    display: table;
+    padding: 20px;
+    color: #AF9E9E;
+    background: #043135;
+}
+
+.text-center{
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+}
+.bd-footer-links{
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+}
+
+.bd-footer li{
+    padding: 0 20 0 0;
+    float:left;
+}
+
+.bd-footer a{
+    color: #FAFAFA;
 }
 
 
+.bd-footer a:hover{
+    color: #FBAE07;
+}
 
 .statistics{
     margin-top: 3px;
@@ -129,7 +148,7 @@ input[type=submit]:hover {
 /*---- Nav ----*/
 
 .navbar {
-    background-color: #79a5af;
+    background-color: #043135;
 }
 
 .navbar li a:hover {
