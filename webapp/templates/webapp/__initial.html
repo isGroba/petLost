@@ -12,12 +12,21 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <a class="navbar-brand" href="{% url 'home' %}">PetLost</a>
-      <div class="collapse navbar-collapse">
-        <div class="navbar-nav">
-        </div>
+    <nav class="navbar navbar-toggleable-sm">
+      <div class="col-1">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src= "{% static 'icons/logo.png' %}" alt="Logo" height="100">
+        </a>
       </div>
+      <div class=" ">
+          {% if request.user.is_authenticated %}
+          <a class="nav-item nav-link" href="# account">{{ request.user.username }}</a>
+          <a class="nav-item nav-link justify-content-end" href="{% url 'logout' %}">Salir</a>
+          {% else %}
+          <a class="nav-item nav-link" href="{% url 'login' %}">Inicia sesión</a>
+          <a class="nav-item nav-link justify-content-end" href="/accounts/register/">Regístrate</a>
+          {% endif %}
+        </div>
     </nav>
   </header>
   <main>
