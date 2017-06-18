@@ -17,7 +17,29 @@ a:hover{
 dt{
     font-size : 20px;
 }
+
+hr{
+    display: block;
+    margin-left: 2em;
+    margin-right: 2em;
+    border-width: 2px;
+    background-color: #FBAE07;
+}
+
+    /* --- header --- */
+
+.initial-title{
+    color:#FBAE07;
+    padding: 10px;
+}
+
+.initial-text{
+    font-family: 'Bernard MT Condensed', 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
     /* --- footer --- */
+
 footer{
     padding: 20px;
     color: #AF9E9E;
@@ -46,10 +68,18 @@ footer{
     color: #FBAE07;
 }
 
-    /* ---      --- */
+    /* ---   box   --- */
 
 .fluid-container{
     padding: 30 15 15 15;
+}
+
+.padding-title{
+    padding: 0 10 0 10;
+}
+
+.padding-content{
+    padding: 0 20 0 20;
 }
 
 input {
@@ -90,25 +120,24 @@ input[type=submit]:hover {
 /*---- Buttons ----*/
 
 .btn {
-    background-color: #87b8c3;
-    border: none;
-    border-radius: 1;
-    border-color: transparent;
-    color: white;
+    background-color: #FAFAFA;
+    color: #043135;
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
+    font-weight: bold;
 }
 
 .btn:hover {
-    background-color: #9fc6cf;
-    text-decoration: none;
+    background-color: #043135;
+    color: #FAFAFA;
+    border-style: solid;
+    border-color: #043135;
     cursor: pointer;
-    border: none;
 }
 
 .btn-link:hover {
     background-color: #9fc6cf;
-    color: white;
+    color: #FAFAFA;
 }
 
 .btn-success {
