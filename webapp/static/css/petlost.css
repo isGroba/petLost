@@ -1,5 +1,5 @@
 body {
-    background: #FAFAFA;
+    background: #d3f5ff;
     font-family: 'Open Sans', sans-serif;
     font-size: 1em;
     color: #3d3d3d;
@@ -10,7 +10,7 @@ a{
 }
 
 a:hover{
-    color: #FBAE07;
+    color: #043135;
     text-decoration:none;
 }
 
@@ -23,7 +23,7 @@ hr{
     margin-left: 2em;
     margin-right: 2em;
     border-width: 2px;
-    background-color: FBAE07;
+    background-color: #FBAE07;
 }
 
     /* --- header --- */
@@ -60,10 +60,9 @@ footer{
     float:left;
 }
 
-.bd-footer a{
+.bd-footer a {
     color: #FAFAFA;
 }
-
 
 .bd-footer a:hover{
     color: #FBAE07;
@@ -96,13 +95,14 @@ input[type=submit]:hover {
 }
 
 .list-group-item{
-    background-color:  	#94b8ba;
+    background-color:  	#FAFAFA;
+    font-weight: bold;
     font-size: 14px;
     border-radius: none;
 }
 
 .list-group-item.active{
-    background-color:  	#85a5a7;
+    background-color:  	#043135;
     border-color: #353535;
 }
 
@@ -113,7 +113,7 @@ input[type=submit]:hover {
     -webkit-box-shadow: 0px 9px 17px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    0px 9px 17px 0px rgba(50, 50, 50, 0.75);
     box-shadow: 0px 9px 20px 0px rgba(50, 50, 50, 0.4);
-    background: #BBCBCC;
+    background: #FAFAFA;
     border-radius: 40px;
 }
 
@@ -167,16 +167,14 @@ input[type=submit]:hover {
 
 .navbar {
     background-color: #043135;
+    font-weight: bold;
 }
 
-.navbar li a:hover {
-    color: #353535;
+.navbar a:hover {
+    color: #FBAE07;
     text-decoration: underline;
 }
 
-.navbar-img {
-    max-height: 40px;
-}
 
 .nav-link {
     color: white;
@@ -198,17 +196,29 @@ input[type=submit]:hover {
 }
 
 .brown{
-    background-color: #8B4513;
+    background-color: #a52a2a;
+}
+
+.red{
+    background-color: #ff0000;
+}
+
+.orange{
+    background-color: #ffa500;
 }
 
 .yellow{
-    background-color: #DAA520;
+    background-color: #ffff00;
 }
 
 .gray{
-    background-color: #4e4e4e;
+    background-color: #808080;
+}
+
+.blue{
+    background-color:#0000ff;
 }
 
 .green{
-    background-color: #55FF00;
+    background-color: #008000;
 }

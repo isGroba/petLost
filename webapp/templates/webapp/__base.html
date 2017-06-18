@@ -18,13 +18,39 @@
   {% block body %}
   {% endblock %}
 </main>
-<aside>
+<aside class="col-2">
   {% block stadistic %}
-  <div class="statistics">
-  <h3>Nuestros números</h3>
-  <p>Mascotas perdidas: {{ pet_lost }}</p>
-  <p>Publicaciones activas: {{ publi }}</p>
-  <p>Mascotas en casa</p>
+  <div>
+  <h5>Mascotas</h5>
+  <ul class="list-group">
+    <li class="list-group-item justify-content-between">
+      <p>Perdidas</p>
+      <h3><span class="badge badge-danger badge-pill">{{ pet_lost }}</span></h3>
+    </li>
+    <li class="list-group-item justify-content-between">
+      Encontradas
+      <h3><span class="badge badge-warning badge-pill">??</span></h3>
+    </li>
+    <li class="list-group-item justify-content-between">
+      ¡ En casa !
+      <h3><span class="badge badge-success badge-pill">???</span></h3>
+    </li>
+  </ul>
+  <h5>Publicaciones</h5>
+  <ul class="list-group">
+      <li class="list-group-item justify-content-between">
+      activas
+      <h3><span class="badge badge-warning badge-pill">{{ publi }}</span></h3>
+    </li>
+    <li class="list-group-item justify-content-between">
+      Cerradas
+      <h3><span class="badge badge-success badge-pill">??</span></h3>
+    </li>
+    <li class="list-group-item justify-content-between">
+      Totales
+      <h3><span class="badge badge-primary badge-pill">???</span></h3>
+    </li>
+  </ul>
   </div>
   {% endblock stadistic%}
 </aside>
