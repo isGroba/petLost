@@ -1,5 +1,5 @@
 body {
-    background: #d3f5ff;
+    background: #FAFAFA;
     font-family: 'Open Sans', sans-serif;
     font-size: 1em;
     color: #3d3d3d;
@@ -85,6 +85,7 @@ footer{
 input {
     border: 1px solid #B2B2B2;
     border-radius: 0;
+    border-radius: 10;
     line-height: 1.25rem;
     font-size: 1rem;
     padding: .5rem;
@@ -189,36 +190,54 @@ input[type=submit]:hover {
 
 .black{
     background-color: #000000;
+    width: 20px;
+    height:20px;
 }
 
 .white{
     background-color: #FFFFFF;
+    width: 20px;
+    height:20px;
 }
 
 .brown{
     background-color: #a52a2a;
+    width: 20px;
+    height:20px;
 }
 
 .red{
     background-color: #ff0000;
+    width: 20px;
+    height:20px;
 }
 
 .orange{
     background-color: #ffa500;
+    width: 20px;
+    height:20px;
 }
 
 .yellow{
     background-color: #ffff00;
+    width: 20px;
+    height:20px;
 }
 
 .gray{
     background-color: #808080;
+    width: 20px;
+    height:20px;
 }
 
 .blue{
     background-color:#0000ff;
+    width: 20px;
+    height:20px;
 }
 
 .green{
     background-color: #008000;
+    width: 20px;
+    height:20px;
 }
