@@ -18,6 +18,28 @@ dt{
     font-size : 20px;
 }
 
+hr{
+    display: block;
+    margin-left: 2em;
+    margin-right: 2em;
+    border-width: 2px;
+    background-color: FBAE07;
+}
+
+    /* --- header --- */
+
+.initial-title{
+    color:#FBAE07;
+    padding: 10px;
+}
+
+.initial-text{
+    font-family: 'Bernard MT Condensed', 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
+    /* --- footer --- */
+
 footer{
     padding: 20px;
     color: #AF9E9E;
@@ -47,23 +69,20 @@ footer{
     color: #FBAE07;
 }
 
-.statistics{
-    margin-top: 3px;
-    background-color : #85a5a7;
-    border: 2px solid #4e4e4e;
-    padding: 1px 2px 1px 2px;
-    border-radius: 50%;
-    padding: 40px;
-    text-align: center;
-    max-width: 300px;
-    max-height: 300px;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    /* ---   box   --- */
+
+.fluid-container{
+    padding: 30 15 15 15;
 }
+
+.padding-title{
+    padding: 0 10 0 10;
+}
+
+.padding-content{
+    padding: 0 20 0 20;
+}
+
 input {
     border: 1px solid #B2B2B2;
     border-radius: 0;
@@ -101,25 +120,24 @@ input[type=submit]:hover {
 /*---- Buttons ----*/
 
 .btn {
-    background-color: #87b8c3;
-    border: none;
-    border-radius: 1;
-    border-color: transparent;
-    color: white;
+    background-color: #FAFAFA;
+    color: #043135;
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
+    font-weight: bold;
 }
 
 .btn:hover {
-    background-color: #9fc6cf;
-    text-decoration: none;
+    background-color: #043135;
+    color: #FAFAFA;
+    border-style: solid;
+    border-color: #043135;
     cursor: pointer;
-    border: none;
 }
 
 .btn-link:hover {
     background-color: #9fc6cf;
-    color: white;
+    color: #FAFAFA;
 }
 
 .btn-success {
