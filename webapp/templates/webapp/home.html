@@ -1,26 +1,29 @@
 {% extends './__base.html' %}
 {% block body %}
-<a href="/webapp/home/">home/</a>
+<a href="/webapp/home/">home</a>/
 
 {% for publication in object_list %}
   <hr/>
-  <div class='row'>
+  <div class='row padding-title'>
     <h3 class='col-8'>
       <a href="{% url 'publication-detail' pk=publication.pk %}">{{ publication.title}}</a>
     </h3>
     <h6 class='col-4' align=right>{{ publication.date }}</h6>
   </div>
-  <div class='row'>
+  <div class='row padding-content'>
     <div class='col-8'>
       <h5><a href="{% url 'pet-detail' pk=publication.pet.pk %}">{{ publication.pet }}</a></h5>
       <p>{{ publication.description }}</p>
     </div>
     <div class='col-4'>
       {% if publication.pet.picture %}
-      <a href="/media/{{publication.pet.picture}}"><img src= "/media/{{publication.pet.picture}}" alt="Fotografia" height="100" width="100" align=right></a>
+      <a href="/media/{{publication.pet.picture}}">
+        <img src= "/media/{{publication.pet.picture}}" alt="Fotografia" height="100" width="100" align=right>
+      </a>
       {% endif %}
     </div>
   </div>
+  <a href="#" class="btn btn-primary">Contacta conmigo!</a>
   {% empty %}
   <p>No hay publicaciones</p>
   {% endfor %}
