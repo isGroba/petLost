@@ -134,10 +134,16 @@ class PetDetail(MenuMixin, generic.DetailView):
 
 
 class MyPublications(LoginRequiredMixin, MenuMixin, generic.ListView):
-    template_name = 'webapp/publication/list.html'
+    template_name = 'webapp/own_publication/list.html'
     name = 'Mis publicaciones'
     model = models.Publication
     paginate_by = 5
 
     def get_queryset(self):
         return models.Publication.objects.filter(member=self.request.user).order_by('-date')
+
+
+class MyPublicationDetail(MenuMixin, generic.DetailView):
+    model = models.Publication
+    template_name = 'webapp/own_publication/detail.html'
+    name = 'Detalle publicacion'

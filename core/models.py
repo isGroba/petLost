@@ -18,6 +18,7 @@ class Pet(models.Model):
 
     class Meta:
         verbose_name = 'Mascota'
+
     CATEGORIES = [
         ('dog', 'Perro'),
         ('cat', 'Gato'),
@@ -43,9 +44,15 @@ class Publication(models.Model):
     class Meta:
         verbose_name = 'Publicación'
 
+    STATUS = [
+        ('found', 'Buscando al propietario'),
+        ('lost', 'Buscando mi mascota'),
+        ('solved', 'Solucionado'),
+    ]
     title = models.TextField(verbose_name='Título', default='', max_length=100)
     description = models.TextField(verbose_name='Descripción', null=True, blank=True, max_length=250)
     date = models.DateField(verbose_name='Fecha', auto_now=True)
+    state_publication = models.CharField('Estado', choices=STATUS, default='', max_length=32)
     pet = models.ForeignKey(Pet, on_delete=models.PROTECT)
     member = models.ForeignKey(User, on_delete=models.PROTECT)
 
