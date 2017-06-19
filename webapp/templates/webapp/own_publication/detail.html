@@ -1,6 +1,6 @@
 {% extends '../__base.html' %}
 {% block body %}
-<h3>{{publication.title}}</h3>
+<h3>{{publication.title}} <small>{{ publication.date }}</small></h3>
 <dl>
     <dt>{{publication.description}}</dt>
       <h3>Nombre: {{publication.pet.name}}</h3>
@@ -17,15 +17,16 @@
             </tr>
             <tr>
                 <td>Raza: {{ publication.pet.breed }}</td>
-                <tr>
-            <td>
-                <div class="text-left">
-                  Color:
-                </div>
-                {% for color in publication.pet.color.all %}
-                <div class="color {{ color.code_color }}"></div>
-                {% endfor %}
-            </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="text-left">
+                    Color:
+                    </div>
+                    {% for color in publication.pet.color.all %}
+                    <div class="color {{ color.code_color }}"></div>
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <td colspan="2">{{ publication.pet.description }}</td>

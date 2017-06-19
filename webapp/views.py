@@ -81,7 +81,7 @@ class PublicationEdit(MenuMixin, generic.UpdateView):
     name = 'Crear Publicación'
 
     def get_success_url(self):
-        return reverse('publication-detail', args=[self.object.id])
+        return reverse('own-publication-detail', args=[self.object.id])
 
 
 class PublicationDetail(MenuMixin, generic.DetailView):
