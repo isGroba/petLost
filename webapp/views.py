@@ -24,6 +24,7 @@ class MenuBar:
 
     def get_options(self):
         return [
+            Option('Home', 'home', menu=self),
             Option('Publicaciones', 'publication-list', menu=self),
             Option('Nueva publicación', 'pet-create', menu=self),
             Option('Mis publicaciones', 'own-publication-list', menu=self),
@@ -56,7 +57,7 @@ class Logout(LogoutView):
 
 class Home(MenuMixin, generic.ListView):
     template_name = 'webapp/home.html'
-    name = 'Página principal'
+    name = 'Home'
     paginate_by = 5
     model = models.Publication
 
@@ -103,7 +104,7 @@ class PetList(MenuMixin, generic.ListView):
 class NewPet(LoginRequiredMixin, MenuMixin, generic.FormView):
     form_class = forms.NewPet
     template_name = 'webapp/pet/create.html'
-    name = 'Datos del animal'
+    name = 'Nueva publicación'
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
@@ -135,7 +136,7 @@ class PetDetail(MenuMixin, generic.DetailView):
 
 class MyPublications(LoginRequiredMixin, MenuMixin, generic.ListView):
     template_name = 'webapp/publication/list.html'
-    name = 'Publicaciones Propias'
+    name = 'Mis publicaciones'
     model = models.Publication
     paginate_by = 5
 
