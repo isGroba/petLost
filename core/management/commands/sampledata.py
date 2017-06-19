@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand, CommandError
 
 from core import models
@@ -31,11 +30,6 @@ class Command(BaseCommand):
 
         # First truncate any data in DB
         self.stdout.write(self.style.ERROR('Please truncate manually the DB before populating it.'))
-
-        # Create a super user
-        User.objects.create_superuser(
-            username='admin', password='adminadmin', email='dev@petlost.com')
-        self.stdout.write(self.style.SUCCESS('[\u2713] Created SuperUser'))
 
         # Populate colors
         self.populate_colors()

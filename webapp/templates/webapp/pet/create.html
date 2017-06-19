@@ -2,7 +2,7 @@
 
 {% block body %}
 <form class="custom-form element" action="{% url 'pet-create' %}" method="post" enctype="multipart/form-data">
-
+{% csrf_token %}
 
 <div class="form-group col-2">
   <label for="{{ form.name.id_for_label }}" class="form-control-label">{{ form.name.label }}
@@ -14,18 +14,24 @@
   <label for="{{ form.breed.id_for_label }}" class="form-control-label">{{ form.breed.label }}
   {{ form.breed }}
   </label>
-  <label for="{{ form.name.id_for_label }}" class="form-control-label">{{ form.name.label }}
-  {{ form.name }}
+  <label for="{{ form.description.id_for_label }}" class="form-control-label">{{ form.description.label }}
+  {{ form.description }}
   </label>
-   <label for="{{ form.name.id_for_label }}" class="form-control-label">{{ form.name.label }}
-  {{ form.name }}
+   <label for="{{ form.picture.id_for_label }}" class="form-control-label">{{ form.picture.label }}
+  {{ form.picture }}
   </label>
-  <label for="{{ form.color.id_for_label }}" class="form-control-label">{{ form.color.label }}
+  <label for="{{ form.color.id_for_label }}" class="form-control-label">
+    <div class="text-left">
+      {{ form.color.label }}
+    </div>
   {% for color in form.color %}
   <div class="{{color.id_for_label}}">
   {{ color }}
   </div>
   {% endfor %}
+  </label>
+  <label for="{{ form.location.id_for_label }}" class="form-control-label">{{ form.location.label }}
+  {{ form.location }}
   </label>
   <div class="form-control-feedback">{{ field.errors }}</div>
 </div>

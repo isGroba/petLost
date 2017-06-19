@@ -13,7 +13,11 @@
       <td>Raza: {{ pet.breed }}</td>
     </tr>
     <tr>
-      <td>Color: 
+      <td>
+        <div class="text-left">
+          Color
+       </div>
+       <br></br>
         {% for color in pet.color.all %}
         <div class="{{ color.code_color }}"></div>
         {% endfor %}

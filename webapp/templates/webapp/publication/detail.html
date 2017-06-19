@@ -17,6 +17,14 @@
             </tr>
             <tr>
                 <td>Raza: {{ publication.pet.breed }}</td>
+            <td>
+                <div class="text-left">
+                  Color:
+                </div>
+                {% for color in publication.pet.color.all %}
+                <div class="{{ color.code_color }}"></div>
+                {% endfor %}
+            </td>
             </tr>
             <tr>
                 <td>Color:
