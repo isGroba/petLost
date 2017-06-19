@@ -17,6 +17,9 @@ pet = [
     url(r'^(?P<pk>[^/]+)/$', views.PetDetail.as_view(), name='pet-detail'),
 ]
 
+pet = [
+    url(r'^(?P<pk>[^/]+)/$', views.NewEmail.as_view(), name='new-email'),
+]
 
 urlpatterns = [
     url(r'^$', RedirectView.as_view(url='home/')),
@@ -25,4 +28,5 @@ urlpatterns = [
     url(r'^logout/$', views.Logout.as_view(), name='logout'),
     url(r'^publications/', include(publications)),
     url(r'^pet/', include(pet)),
+    url(r'^email/', include(email)),
 ]

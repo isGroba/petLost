@@ -126,6 +126,18 @@ class NewPet(LoginRequiredMixin, MenuMixin, generic.FormView):
         return kwargs
 
 
+class NewEmail(LoginRequiredMixin, MenuMixin, generic.FormView):
+    form_class = forms.NewEmail
+    template_name = 'webapp/email/create.html'
+    name = 'Contactar'
+
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        kwargs['publication'] = self.publication.id
+        return kwargs
+
+
+
 class PetDetail(MenuMixin, generic.DetailView):
     model = models.Pet
     template_name = 'webapp/pet/detail.html'
