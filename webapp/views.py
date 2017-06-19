@@ -40,7 +40,10 @@ class MenuMixin:
     def get_context_data(self, **kwargs):
         if 'menu' not in kwargs:
             kwargs['menu'] = MenuBar(self.name)
-            kwargs['pet_lost'] = models.Pet.objects.count()
+            kwargs['pet_lost'] = models.Publication.objects.filter(state_publication='lost').count()
+            kwargs['pet_found'] = models.Publication.objects.filter(state_publication='found').count()
+            kwargs['pet_home'] = models.Publication.objects.filter(state_publication='solved').count()
+            kwargs['publi_active'] = models.Publication.objects.exclude(state_publication='solved').count()
             kwargs['publi'] = models.Publication.objects.count()
         return super().get_context_data(**kwargs)
 
