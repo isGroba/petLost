@@ -6,7 +6,7 @@ from core import models
 class EditPublication(forms.ModelForm):
     class Meta:
         model = models.Publication
-        fields = ('title', 'description', 'pet')
+        fields = ('title', 'description', 'state_publication', 'pet')
 
         widgets = {
             'title': forms.TextInput(),
@@ -47,5 +47,5 @@ class NewPet(forms.Form):
         pet.color = cleaned_data['color']
 
         member = usuario
-        publication = models.Publication.objects.create(title='', description='', pet=pet, member=member)
+        publication = models.Publication.objects.create(title='', description='', state_publication='', pet=pet, member=member)
         return publication
