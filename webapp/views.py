@@ -25,7 +25,6 @@ class MenuBar:
     def get_options(self):
         return [
             Option('Home', 'home', menu=self),
-            Option('Publicaciones', 'publication-list', menu=self),
             Option('Nueva publicación', 'pet-create', menu=self),
             Option('Mis publicaciones', 'own-publication-list', menu=self),
             Option('Configuracion cuenta', None, menu=self),
