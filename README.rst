@@ -74,6 +74,12 @@ Una vez hecho esto tenemos que cargar las migraciones de la base de datos:
 
     python3 manage.py migrate
 
+Para cargar los colores de la base de datos:
+
+.. code::
+
+    python3 manage.py sampledata
+
 Tests y cobertura de código
 ---------------------------
 
