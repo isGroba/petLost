@@ -47,5 +47,6 @@ class NewPet(forms.Form):
         pet.color = cleaned_data['color']
 
         member = usuario
-        publication = models.Publication.objects.create(title='', description='', state_publication='', pet=pet, member=member)
+        publication = models.Publication.objects.create(
+            title='', description='', state_publication='', pet=pet, member=member)
         return publication
