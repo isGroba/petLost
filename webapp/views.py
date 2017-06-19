@@ -131,13 +131,26 @@ class PetDetail(MenuMixin, generic.DetailView):
         kwargs = super().get_context_data(**kwargs)
         kwargs['key'] = settings.POS_API_KEY
         return kwargs
+class MyPublicationDetail(LoginRequiredMixin, MenuMixin, generic.UpdateView):
+    model = models.Publication
+    form_class = forms.EditPublication
+    template_name = 'webapp/publication/edit.html'
+    name = 'Crear Publicación'
 
+    def get_success_url(self):
+        return reverse('publication-detail', args=[self.object.id])
 
 class MyPublications(LoginRequiredMixin, MenuMixin, generic.ListView):
-    template_name = 'webapp/publication/list.html'
+    template_name = 'webapp/own_publication/list.html'
     name = 'Mis publicaciones'
     model = models.Publication
     paginate_by = 5
 
     def get_queryset(self):
         return models.Publication.objects.filter(member=self.request.user).order_by('-date')
+
+
+class MyPublicationDetail(MenuMixin, generic.DetailView):
+    model = models.Publication
+    template_name = 'webapp/own_publication/detail.html'
+    name = 'Detalle publicacion'

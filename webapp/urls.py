@@ -6,6 +6,7 @@ from . import views
 publications = [
     url(r'^$', views.PublicationList.as_view(), name='publication-list'),
     url(r'^own/$', views.MyPublications.as_view(), name='own-publication-list'),
+    url(r'^own/(?P<pk>[^/]+)/$', views.MyPublicationDetail.as_view(), name='own-publication-detail'),
     url(r'^(?P<pk>[^/]+)/$', views.PublicationDetail.as_view(), name='publication-detail'),
     url(r'^(?P<pk>[^/]+)/edit/$', views.PublicationEdit.as_view(), name='publication-edit'),
 ]

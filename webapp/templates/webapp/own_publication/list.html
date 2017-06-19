@@ -1,0 +1,22 @@
+{% extends '../__base.html' %}
+
+{% block body %}
+  {% block content %}
+  <div>
+    <a href="{% url 'pet-create' %}" class="btn btn-primary">Nueva publicacion</a>
+  </div>
+    <br>
+    <form method="get">
+     {{ form.as_p }}
+    </form>
+    <br>
+    {% for publication in object_list %}
+     <div>
+      <a href="{% url 'own-publication-detail' pk=publication.pk %}">{{ publication.title}}</a>
+     </div>
+    {% empty %}
+     <p>No hay publicaciones</p>
+    {% endfor %}
+    {% include '../__pagination.html' %}
+  {% endblock content %}
+{% endblock body %}
