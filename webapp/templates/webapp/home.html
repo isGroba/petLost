@@ -23,7 +23,7 @@
       {% endif %}
     </div>
   </div>
-  <a href="#" class="btn btn-primary">Contacta conmigo!</a>
+  <a href="{% url 'new-email' publication.id %}" class="btn btn-primary">Contacta conmigo!</a>
   {% empty %}
   <p>No hay publicaciones</p>
   {% endfor %}

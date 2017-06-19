@@ -130,12 +130,21 @@ class NewEmail(LoginRequiredMixin, MenuMixin, generic.FormView):
     form_class = forms.NewEmail
     template_name = 'webapp/email/create.html'
     name = 'Contactar'
+    publication = models.Publication
 
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
-        kwargs['publication'] = self.publication.id
+        kwargs['publication'] = self.publication.objects.get(pk=self.kwargs.get('pk'))
         return kwargs
 
+    def form_valid(self, form):
+        title = form.cleaned_data['subject']
+        body = form.cleaned_data['message']
+        publication = self.publication.objects.get(pk=self.kwargs.get('pk'))
+        member_email = publication.member.email
+        email = EmailMessage(title, body, to=[member_email])
+        email.send()
+        return redirect('publication-list')
 
 
 class PetDetail(MenuMixin, generic.DetailView):

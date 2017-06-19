@@ -55,4 +55,4 @@ class NewPet(forms.Form):
 class NewEmail(forms.Form):
 
     subject = forms.CharField(label='Asunto')
-    message = forms.TextField(label='Mensaje')
+    message = forms.CharField(label='Mensaje')

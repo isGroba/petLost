@@ -17,7 +17,7 @@ pet = [
     url(r'^(?P<pk>[^/]+)/$', views.PetDetail.as_view(), name='pet-detail'),
 ]
 
-pet = [
+email = [
     url(r'^(?P<pk>[^/]+)/$', views.NewEmail.as_view(), name='new-email'),
 ]
 
