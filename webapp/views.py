@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect, reverse
 from django.views import generic
+from django.core.mail import EmailMessage
 
 from core import models
 from webapp import forms
