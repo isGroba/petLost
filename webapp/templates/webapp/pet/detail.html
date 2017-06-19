@@ -5,7 +5,7 @@
   <tbody>
     <tr>
       {% if pet.picture %}
-      <td rowspan="3"><img src= "/media/{{pet.picture}}" alt="Fotografia {{ pet.name }}" height="100" width="100"></td>
+      <td rowspan="3"><img src= "/media/{{pet.picture}}" alt="{{ pet.name }}" height="100" width="100"></td>
       {% endif %}
       <td>Tipo de animal: {{ pet.type_animal }}</td>
     </tr>
@@ -15,7 +15,7 @@
     <tr>
       <td>Color: 
         {% for color in pet.color.all %}
-        {{ color }}
+        <div class="{{ color.code_color }}"></div>
         {% endfor %}
       </td>
     </tr>

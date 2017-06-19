@@ -18,7 +18,7 @@
             <tr>
             <td>Color:
                 {% for color in publication.pet.color.all %}
-                {{ color }}
+                <div class="{{ color.code_color }}"></div>
                 {% endfor %}
             </td>
             </tr>
@@ -27,5 +27,4 @@
             </tr>
         </tbody>
         </table>
-
 {% endblock %}

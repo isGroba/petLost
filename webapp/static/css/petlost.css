@@ -1,5 +1,5 @@
 body {
-    background: #d3f5ff;
+    background: #FAFAFA;
     font-family: 'Open Sans', sans-serif;
     font-size: 1em;
     color: #3d3d3d;
@@ -85,6 +85,7 @@ footer{
 input {
     border: 1px solid #B2B2B2;
     border-radius: 0;
+    border-radius: 10;
     line-height: 1.25rem;
     font-size: 1rem;
     padding: .5rem;
@@ -189,36 +190,89 @@ input[type=submit]:hover {
 
 .black{
     background-color: #000000;
+    width: 20px;
+    height:20px;
+    border-style: solid;
+    margin: 1 1 1 1;
+    float:left;
 }
 
 .white{
     background-color: #FFFFFF;
+    width: 20px;
+    height:20px;
+    border-style: solid;
+    border-color: #043135;
+    margin: 1 1 1 1;
+    float:left;
 }
 
 .brown{
     background-color: #a52a2a;
+    width: 20px;
+    height:20px;
+    border-style: solid;
+    border-color: #043135;
+    margin: 1 1 1 1;
+    float:left;
 }
 
 .red{
     background-color: #ff0000;
+    width: 20px;
+    height:20px;
+    border-style: solid;
+    border-color: #043135;
+    margin: 1 1 1 1;
+    float:left;
 }
 
 .orange{
     background-color: #ffa500;
+    width: 20px;
+    height:20px;
+    border-style: solid;
+    border-color: #043135;
+    margin: 1 1 1 1;
+    float:left;
 }
 
 .yellow{
     background-color: #ffff00;
+    width: 20px;
+    height:20px;
+    border-style: solid;
+    border-color: #043135;
+    margin: 1 1 1 1;
+    float:left;
 }
 
 .gray{
     background-color: #808080;
+    width: 20px;
+    height:20px;
+    border-style: solid;
+    border-color: #043135;
+    margin: 1 1 1 1;
+    float:left;
 }
 
 .blue{
     background-color:#0000ff;
+    width: 20px;
+    height:20px;
+    border-style: solid;
+    border-color: #043135;
+    margin: 1 1 1 1;
+    float:left;
 }
 
 .green{
     background-color: #008000;
+    width: 20px;
+    height:20px;
+    border-style: solid;
+    border-color: #043135;
+    margin: 1 1 1 1;
+    float:left;
 }
