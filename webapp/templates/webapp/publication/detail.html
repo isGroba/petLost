@@ -23,7 +23,7 @@
                   Color:
                 </div>
                 {% for color in publication.pet.color.all %}
-                <div class="{{ color.code_color }}"></div>
+                <div class="color {{ color.code_color }}"></div>
                 {% endfor %}
             </td>
             </tr>

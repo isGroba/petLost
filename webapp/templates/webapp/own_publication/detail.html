@@ -10,20 +10,22 @@
             {% if publication.pet.picture %}
                 <td rowspan="4"><img src= "/media/{{publication.pet.picture}}" alt="Fotografia {{ publication.pet.name }}" height="100" width="100"></td>
             {% endif %}
-                <td>Tipo de animal: {{ publication.pet.type_animal }}</td>
+                    <td>Tipo de animal: {{ publication.pet.type_animal }}</td>
             </tr>
             <tr>
                 <td>Estado: {{ publication.state_publication }}</td>
             </tr>
             <tr>
                 <td>Raza: {{ publication.pet.breed }}</td>
-            </tr>
-            <tr>
-                <td>Color:
-                    {% for color in publication.pet.color.all %}
-                    <div class="{{ color.code_color }}"></div>
-                    {% endfor %}
-                </td>
+                <tr>
+            <td>
+                <div class="text-left">
+                  Color:
+                </div>
+                {% for color in publication.pet.color.all %}
+                <div class="color {{ color.code_color }}"></div>
+                {% endfor %}
+            </td>
             </tr>
             <tr>
                 <td colspan="2">{{ publication.pet.description }}</td>

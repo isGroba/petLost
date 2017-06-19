@@ -192,118 +192,49 @@ input[type=submit]:hover {
 }
 /*------ Colors ------*/
 
-.black, .id_color_0{
-    background-color: #000000;
-    width: 50px;
-    height:50px;
+.color{
     border-radius: 20%;
-    border-style: solid;
     margin: 1 1 1 1;
     float:left;
     overflow: hidden;
     color:transparent;
+    -webkit-box-shadow: 1px 2px 3px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 1px 2px 3px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 2px 3px 2px rgba(0,0,0,0.2);
+}
+
+.black, .id_color_0{
+    background-color: #000000;
 }
 
 .white, .id_color_1{
     background-color: #FFFFFF;
-    width: 50px;
-    height:50px;
-    border-radius: 20%;
-    border-style: solid;
-    border-color: #043135;
-    margin: 1 1 1 1;
-    float:left;
-    overflow: hidden;
-    color:transparent;
 }
 
 .brown, .id_color_2{
     background-color: #8B4513;
-    width: 50px;
-    height:50px;
-    border-radius: 20%;
-    border-style: solid;
-    border-color: #043135;
-    margin: 1 1 1 1;
-    float:left;
-    overflow: hidden;
-    color:transparent;
 }
 
 .red, .id_color_3{
     background-color: #ff0000;
-    width: 50px;
-    height:50px;
-    border-radius: 20%;
-    border-style: solid;
-    border-color: #043135;
-    margin: 1 1 1 1;
-    float:left;
-    overflow: hidden;
-    color:transparent;
 }
 
 .orange, .id_color_4{
     background-color: #ffa500;
-    width: 50px;
-    height:50px;
-    border-radius: 20%;
-    border-style: solid;
-    border-color: #043135;
-    margin: 1 1 1 1;
-    float:left;
-    overflow: hidden;
-    color:transparent;
 }
 
 .yellow, .id_color_5{
     background-color: #ffff00;
-    width: 50px;
-    height:50px;
-    border-radius: 20%;
-    border-style: solid;
-    border-color: #043135;
-    margin: 1 1 1 1;
-    float:left;
-    overflow: hidden;
-    color:transparent;
 }
 
 .gray, .id_color_6{
     background-color: #808080;
-    width: 50px;
-    height:50px;
-    border-radius: 20%;
-    border-style: solid;
-    border-color: #043135;
-    margin: 1 1 1 1;
-    float:left;
-    overflow: hidden;
-    color:transparent;
 }
 
 .blue, .id_color_7{
     background-color:#0000ff;
-    width: 50px;
-    height:50px;
-    border-radius: 20%;
-    border-style: solid;
-    border-color: #043135;
-    margin: 1 1 1 1;
-    float:left;
-    overflow: hidden;
-    color:transparent;
 }
 
 .green, .id_color_8{
     background-color: #008000;
-    width: 50px;
-    height:50px;
-    border-radius: 20%;
-    border-style: solid;
-    border-color: #043135;
-    margin: 1 1 1 1;
-    float:left;
-    overflow: hidden;
-    color:transparent;
 }
