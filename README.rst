@@ -5,9 +5,9 @@ petLost project
 .. image:: https://travis-ci.org/isGroba/petLost.svg?branch=master
     :target: https://travis-ci.org/isGroba/petLost
 
-**PetLost** is a progressive web app. This project consist of a web in 
-which you can upload information of any animal that you find lost.
-
+**PetLost** is a progressive web app. This project consists of
+a web where you can upload information of any animal you
+find in the street or that you have lost.
 This project uses Spanish as the comunication language.
 
 Cómo colaborar en el proyecto
