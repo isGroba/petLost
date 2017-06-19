@@ -61,7 +61,7 @@ class Home(MenuMixin, generic.ListView):
     model = models.Publication
 
     def get_queryset(self):
-        return models.Publication.objects.all().order_by('-date')
+        return models.Publication.objects.exclude(state_publication='solved').order_by('-date')
 
 
 class PublicationList(MenuMixin, generic.ListView):
