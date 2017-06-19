@@ -1,23 +1,22 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand, CommandError
-from django.utils.timezone import now
 
 from core import models
-
 
 # Sample data for Colors
 COLORS_DATA = [
     ('Negro', 'black'),
     ('Blanco', 'white'),
     ('Marron', 'brown'),
-    ('Rojo','red'),
+    ('Rojo', 'red'),
     ('Naranja', 'orange'),
-    ('Amarillo','yellow'),
+    ('Amarillo', 'yellow'),
     ('Gris', 'gray'),
-    ('Azul','blue'),
-    ('Verde','green'),
+    ('Azul', 'blue'),
+    ('Verde', 'green'),
 ]
+
 
 class Command(BaseCommand):
 
@@ -39,10 +38,9 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('[\u2713] Created SuperUser'))
 
         # Populate colors
-        colors = self.populate_colors()
+        self.populate_colors()
 
         self.stdout.write(self.style.SUCCESS('[\u2713] Populated DB succesfully'))
-
 
     def populate_colors(self):
         colors = []
@@ -55,5 +53,3 @@ class Command(BaseCommand):
             colors.append(color)
 
         self.stdout.write(self.style.SUCCESS('[\u2713] Populated DB with colors...'))
-
-        return colors
