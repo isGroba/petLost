@@ -55,4 +55,6 @@ class NewPet(forms.Form):
 class NewEmail(forms.Form):
 
     subject = forms.CharField(label='Asunto')
-    message = forms.CharField(label='Mensaje')
+    message = forms.CharField(label='Mensaje', widget=forms.TextInput)
+    email = forms.CharField(label='Tu email')
+    mobile = forms.CharField(label="Tu telefono")

@@ -1,9 +1,9 @@
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
+from django.core.mail import EmailMessage
 from django.shortcuts import redirect, reverse
 from django.views import generic
-from django.core.mail import EmailMessage
 
 from core import models
 from webapp import forms
@@ -140,6 +140,10 @@ class NewEmail(LoginRequiredMixin, MenuMixin, generic.FormView):
     def form_valid(self, form):
         title = form.cleaned_data['subject']
         body = form.cleaned_data['message']
+        own_email = form.cleaned_data['email']
+        mobile = form.cleaned_data['mobile']
+        body += "\nTelefono de contacto: " + mobile
+        body += "\nE-mail: " + own_email
         publication = self.publication.objects.get(pk=self.kwargs.get('pk'))
         member_email = publication.member.email
         email = EmailMessage(title, body, to=[member_email])
