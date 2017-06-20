@@ -50,3 +50,11 @@ class NewPet(forms.Form):
         publication = models.Publication.objects.create(
             title='', description='', state_publication='', pet=pet, member=member)
         return publication
+
+
+class NewEmail(forms.Form):
+
+    subject = forms.CharField(label='Asunto')
+    message = forms.CharField(label='Mensaje', widget=forms.TextInput)
+    email = forms.CharField(label='Tu email')
+    mobile = forms.CharField(label="Tu telefono")

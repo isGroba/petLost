@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
+from django.core.mail import EmailMessage
 from django.shortcuts import redirect, reverse
 from django.views import generic
 
@@ -123,6 +124,31 @@ class NewPet(LoginRequiredMixin, MenuMixin, generic.FormView):
         kwargs = super().get_context_data(**kwargs)
         kwargs['key'] = settings.POS_API_KEY
         return kwargs
+
+
+class NewEmail(LoginRequiredMixin, MenuMixin, generic.FormView):
+    form_class = forms.NewEmail
+    template_name = 'webapp/email/create.html'
+    name = 'Contactar'
+    publication = models.Publication
+
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        kwargs['publication'] = self.publication.objects.get(pk=self.kwargs.get('pk'))
+        return kwargs
+
+    def form_valid(self, form):
+        title = form.cleaned_data['subject']
+        body = form.cleaned_data['message']
+        own_email = form.cleaned_data['email']
+        mobile = form.cleaned_data['mobile']
+        body += "\nTelefono de contacto: " + mobile
+        body += "\nE-mail: " + own_email
+        publication = self.publication.objects.get(pk=self.kwargs.get('pk'))
+        member_email = publication.member.email
+        email = EmailMessage(title, body, to=[member_email])
+        email.send()
+        return redirect('publication-list')
 
 
 class PetDetail(MenuMixin, generic.DetailView):

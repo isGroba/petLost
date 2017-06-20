@@ -1,0 +1,25 @@
+{% extends '../__base.html' %}
+
+{% block body %}
+{{ publication.member.username }}
+<form class="custom-form element" action="{% url 'new-email' publication.id %}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+<div class="form-group col-2">
+  <label for="{{ form.subject.id_for_label }}" class="form-control-label">{{ form.subject.label }}
+  {{ form.subject }}
+  </label>
+  <label for="{{ form.message.id_for_label }}" class="form-control-label">{{ form.message.label }}
+  {{ form.message }}
+  </label>
+    <label for="{{ form.email.id_for_label }}" class="form-control-label">{{ form.email.label }}
+  {{ form.email }}
+  </label>
+  </label>
+    <label for="{{ form.mobile.id_for_label }}" class="form-control-label">{{ form.mobile.label }}
+  {{ form.mobile }}
+  </label>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Siguiente">
+</form>
+{% endblock %}
