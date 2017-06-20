@@ -10,7 +10,7 @@ class EditPublication(forms.ModelForm):
 
         widgets = {
             'title': forms.TextInput(),
-            'description': forms.TextInput(),
+            'description': forms.Textarea(attrs={'rows': 4, 'cols': 40}),
             'pet': forms.HiddenInput(),
         }
 
@@ -28,7 +28,7 @@ class NewPet(forms.Form):
     name = forms.CharField(label='Nombre')
     type_animal = forms.ChoiceField(label='Tipo', choices=CATEGORIES)
     breed = forms.CharField(label='Raza')
-    description = forms.CharField(label='Descripción')
+    description = forms.CharField(label='Descripción', widget=forms.Textarea(attrs={'rows': 4, 'cols': 40}))
     picture = forms.ImageField(label='Foto', required=False)
     color = forms.MultipleChoiceField(
         choices=models.Color.objects.values_list('id', 'name'), widget=forms.CheckboxSelectMultiple)
@@ -55,6 +55,6 @@ class NewPet(forms.Form):
 class NewEmail(forms.Form):
 
     subject = forms.CharField(label='Asunto')
-    message = forms.CharField(label='Mensaje', widget=forms.TextInput)
+    message = forms.CharField(label='Mensaje', widget=forms.Textarea(attrs={'rows': 4, 'cols': 40}))
     email = forms.CharField(label='Tu email')
     mobile = forms.CharField(label="Tu telefono")
