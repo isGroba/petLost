@@ -1,7 +1,6 @@
 {% extends '../__base.html' %}
 
 {% block body %}
-{{ publication.member.username }}
 <form class="custom-form element" action="{% url 'new-email' publication.id %}" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 
