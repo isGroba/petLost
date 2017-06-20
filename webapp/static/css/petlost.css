@@ -69,6 +69,9 @@ footer{
 }
 
     /* ---   box   --- */
+.box{
+    background-color: #FBAE07;
+}
 
 .fluid-container{
     padding: 30 15 15 15;
