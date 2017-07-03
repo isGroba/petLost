@@ -1,4 +1,5 @@
 {% extends '../__base.html' %}
+{% load static %}
 {% block body %}
 <h3>Nombre: {{pet.name}}</h3>
 <table>
@@ -31,23 +32,8 @@
 <p id="coor">{{ pet.location }}</p>
 <div id="map" style="height:400px; width:100%;"></div>
 
-<script>
-  var coor = document.getElementById('coor').innerHTML;
-  var list_coor = coor.split(',',2);
-  function initMap() {
-    var uluru = new google.maps.LatLng(list_coor[0],list_coor[1]);
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
-      center: uluru,
-    });
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map,
-      animation: google.maps.Animation.BOUNCE,
-    });
-  }
-</script>
 {% endblock %}
 {% block extra %}
   <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap"></script>
+  <script src="{% static 'assets/location.js' %}"></script>
 {% endblock %}
